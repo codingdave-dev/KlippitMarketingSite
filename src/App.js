@@ -17,6 +17,11 @@ const App = ({ auth, profile }) => {
     useEffect(() => {
         if (auth.isLoaded === true && auth.isEmpty === false) {
             setAuthenticated(true);
+            history.push("/dashboard")
+        }
+        if (auth.isLoaded === true && auth.isEmpty === true) {
+            setAuthenticated(false);
+            history.push("/")
         }
     });
 
