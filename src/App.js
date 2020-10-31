@@ -1,26 +1,40 @@
-import React, {Fragment} from 'react';
+import React, { Fragment, useEffect, useState } from "react";
 
-
-import {
-  Switch,
-  Route,
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Header from "./ui/Header";
 
+import Authenticate from "./Authenticate";
+import { connect } from "react-redux";
 
-const App = () => {
+const mapStateToProps = (state) => ({
+    auth: state.firebase.auth,
+    profile: state.firebase.profile,
+});
 
+const App = ({ auth, profile }) => {
+    const [authenticated, setAuthenticated] = useState(false);
 
-  return (
-    <Fragment>
-        <Header/>
-      <Switch>
-        <Route exact path={'/'}>Home</Route>
+    useEffect(() => {
+        if (auth.isLoaded === true && auth.isEmpty === false) {
+            setAuthenticated(true);
+        }
+    });
 
-        <Route path={'/test'}>Test</Route>
-      </Switch>
-    </Fragment>
-  );
-}
+    return (
+        <Fragment>
+            {authenticated && <Header />}
 
-export default App;
+            {!authenticated && <Authenticate />}
+
+            {authenticated && (
+                <Switch>
+                    <Route path={"/dashboard"}>Dashboard</Route>
+
+                    <Route path={"/test"}>Test</Route>
+                </Switch>
+            )}
+        </Fragment>
+    );
+};
+
+export default connect(mapStateToProps)(App);
