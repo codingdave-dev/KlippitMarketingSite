@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import {BrowserRouter} from "react-router-dom";
 
 // REDUX FIREBASE
 import store from "./store/store";
@@ -12,6 +13,7 @@ import { createFirestoreInstance } from "redux-firestore";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import theme from "./theme";
+
 
 const reactReduxFirestoreConfig = {
   userProfile: "users",
@@ -32,7 +34,9 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
+          <BrowserRouter>
           <App />
+          </BrowserRouter>
         </ReactReduxFirebaseProvider>
       </Provider>
     </ThemeProvider>
