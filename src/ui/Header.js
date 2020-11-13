@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, {Fragment, useState} from "react";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/styles";
 
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-
 
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -20,19 +19,16 @@ import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { openDialog } from "../store/actions/dialogActions/dialogActions";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authActions/authActions";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 
-import {Link} from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const actions = {
     logout,
-
 };
 
 const mapStateToProps = (state) => ({
@@ -122,27 +118,33 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 600,
     },
     userLocation: {
-        color: theme.palette.common.hyperlink,
+        // color: theme.palette.common.hyperlink,
     },
 }));
 
-const Header = ({
-                    auth,
-                    profile,
-                    logout,
+const routes = [
+    { name: "Dashboard", link: "/dashboard", selectedIndex: 0, activeIndex: 0 },
+    { name: "Contacts", link: "/contacts", selectedIndex: 1, activeIndex: 1 },
+    { name: "Inquiries", link: "/inquiries", selectedIndex: 2, activeIndex: 2 },
+    { name: "Quotes", link: "/quotes", selectedIndex: 3, activeIndex: 3 },
+    { name: "Orders", link: "/orders", selectedIndex: 4, activeIndex: 4 },
+    // { name: "Activity", link: "/activities", selectedIndex: 5, activeIndex: 5 },
+    { name: "Inventory", link: "/inventory", selectedIndex: 6, activeIndex: 6},
+    { name: "Settings", link: "/settings", selectedIndex: 7, activeIndex: 7 },
+];
 
-                }) => {
+const Header = ({ auth, profile, logout }) => {
     const classes = useStyles();
     const theme = useTheme();
     const iOS = process.browser && /iPad|iPhone|ipod/.test(navigator.userAgent);
     const matches = useMediaQuery(theme.breakpoints.down("md"));
 
     const [value, setValue] = useState(0);
-    const [selectedIndex, setSelectedIndex] = useState(0);
 
     const [openDrawer, setOpenDrawer] = useState(false);
-
     const [anchorEl, setAnchorEl] = React.useState(null);
+
+
 
     const handleUserMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -160,32 +162,7 @@ const Header = ({
         logout();
     };
 
-    const routes = [
-        { name: "Home", link: "/", activeIndex: 0 },
-        { name: "Test", link: "/test", activeIndex: 1 },
 
-    ];
-
-    useEffect(() => {
-        // if (auth.isLoaded === true && auth.isEmpty === true) {
-        //
-        // }
-        // [...routes].forEach((route) => {
-        //     switch (window.location.pathname) {
-        //         case `${route.link}`:
-        //             if (value !== route.activeIndex) {
-        //                 setValue(route.activeIndex);
-        //                 if (route.selectedIndex && route.selectedIndex !== selectedIndex) {
-        //                     setSelectedIndex(route.selectedIndex);
-        //                 }
-        //             }
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        // });
-        // fetchGlobalSettings()
-    }, [value, setValue, selectedIndex, setSelectedIndex, routes, auth]);
 
     const tabs = (
         <Fragment>
@@ -221,7 +198,7 @@ const Header = ({
                             onClick={() => {
                                 setOpenDrawer(false);
                                 setValue(route.activeIndex);
-                                setSelectedIndex(null);
+                                // setSelectedIndex(null);
                             }}
                             divider
                             button
@@ -263,20 +240,20 @@ const Header = ({
                                         direction={"column"}
                                         alignItems={"flex-end"}
                                     >
-                                        <Grid item>
+                                        <Grid item >
                                             <Typography
-                                                variant={"caption"}
+                                                variant={"body2"}
                                                 className={classes.userName}
                                             >
                                                 {profile.fullName}
                                             </Typography>
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item >
                                             <Typography
-                                                variant={"caption"}
+                                                variant={"subtitle2"}
                                                 className={classes.userLocation}
                                             >
-                                                Location
+                                                business Name Here
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -298,36 +275,30 @@ const Header = ({
                                         style={{ zIndex: 1302, top: "40px" }}
                                     >
                                         <MenuItem
-                                            onClick={() => (
-                                                handleUserMenuClose(),
-                                                    console.log("to user account overview")
-                                            )}
+                                            onClick={() => {handleUserMenuClose();
+                                                console.log("to user account overview")}}
                                         >
                                             {profile.firstName}
                                         </MenuItem>
                                         <MenuItem
-                                            onClick={() => (
-                                                handleUserMenuClose(), console.log("edit profile")
-                                            )}
+                                            onClick={() => {handleUserMenuClose(); console.log("edit profile")}}
                                         >
                                             Edit profile
                                         </MenuItem>
                                         <MenuItem
-                                            onClick={() => (
-                                                handleUserMenuClose(), console.log("your calendar")
-                                            )}
+                                            onClick={() => {
+                                                handleUserMenuClose(); console.log("your calendar")
+                                            }}
                                         >
                                             Calendar
                                         </MenuItem>
                                         <MenuItem
-                                            onClick={() => (
-                                                handleUserMenuClose(), console.log("your favourites")
-                                            )}
+                                            onClick={() => {handleUserMenuClose(); console.log("your favourites")}}
                                         >
                                             Favourites
                                         </MenuItem>
                                         <MenuItem
-                                            onClick={() => (handleUserMenuClose(), handleSignOut())}
+                                            onClick={() => {handleUserMenuClose(); handleSignOut()}}
                                         >
                                             Sign Out
                                         </MenuItem>

@@ -17,6 +17,9 @@ import { applyMiddleware, createStore } from "redux";
 import firebase from "./config/firebase";
 import rootReducer from "./store/reducers/rootReducer/rootReducer";
 
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
+
 const middlewares = [
   thunkMiddleware.withExtraArgument({ getFirebase, getFirestore }),
 ];
@@ -43,6 +46,7 @@ ReactDOM.render(
 
 
     <ThemeProvider theme={theme}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Provider store={store}>
         <ReactReduxFirebaseProvider {...reactReduxFirebaseProps}>
           <BrowserRouter>
@@ -50,6 +54,7 @@ ReactDOM.render(
           </BrowserRouter>
         </ReactReduxFirebaseProvider>
       </Provider>
+      </MuiPickersUtilsProvider>
     </ThemeProvider>,
     document.getElementById("root")
 );
