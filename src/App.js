@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Header from "./ui/Header";
 
 import Authenticate from "./Authenticate";
@@ -13,6 +13,8 @@ const mapStateToProps = (state) => ({
 
 const App = ({ auth, profile }) => {
     const [authenticated, setAuthenticated] = useState(false);
+
+    const history = useHistory();
 
     useEffect(() => {
         if (auth.isLoaded === true && auth.isEmpty === false) {
