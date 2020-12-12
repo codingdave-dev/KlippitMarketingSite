@@ -4,57 +4,18 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-
-// REDUX FIREBASE+
-import { Provider } from "react-redux";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
+
+
 import theme from "./theme";
-import thunkMiddleware from "redux-thunk";
-import { getFirebase, ReactReduxFirebaseProvider } from "react-redux-firebase";
-import { getFirestore, reduxFirestore } from "redux-firestore";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { applyMiddleware, createStore } from "redux";
-import firebase from "./config/firebase";
-import rootReducer from "./store/reducers/rootReducer/rootReducer";
-
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
-
-const middlewares = [
-  thunkMiddleware.withExtraArgument({ getFirebase, getFirestore }),
-];
-const composedEnhancer = composeWithDevTools(
-    applyMiddleware(...middlewares),
-    reduxFirestore(firebase)
-);
-const store = createStore(rootReducer, composedEnhancer);
-
-const reactReduxFirestoreConfig = {
-  userProfile: "users",
-  attachAuthIsReady: true,
-  useFirestoreForProfile: true,
-  updateProfileOnLogin: false,
-};
-
-const reactReduxFirebaseProps = {
-  firebase,
-  config: reactReduxFirestoreConfig,
-  dispatch: store.dispatch,
-};
 
 ReactDOM.render(
 
 
     <ThemeProvider theme={theme}>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Provider store={store}>
-        <ReactReduxFirebaseProvider {...reactReduxFirebaseProps}>
-          <BrowserRouter>
+        <BrowserRouter>
             <App />
-          </BrowserRouter>
-        </ReactReduxFirebaseProvider>
-      </Provider>
-      </MuiPickersUtilsProvider>
+        </BrowserRouter>
     </ThemeProvider>,
     document.getElementById("root")
 );

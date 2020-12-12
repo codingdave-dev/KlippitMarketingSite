@@ -19,23 +19,15 @@ import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { connect } from "react-redux";
-import { logout } from "../store/actions/authActions/authActions";
+
+
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 
 import { Link } from "react-router-dom";
 
-const actions = {
-    logout,
-};
 
-const mapStateToProps = (state) => ({
-    auth: state.firebase.auth,
-    profile: state.firebase.profile,
-    admin: state.firebase.profile.admin,
-});
 
 function ElevationScroll(props) {
     const { children } = props;
@@ -123,17 +115,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const routes = [
-    { name: "Dashboard", link: "/dashboard", selectedIndex: 0, activeIndex: 0 },
-    { name: "Contacts", link: "/contacts", selectedIndex: 1, activeIndex: 1 },
-    { name: "Inquiries", link: "/inquiries", selectedIndex: 2, activeIndex: 2 },
-    { name: "Quotes", link: "/quotes", selectedIndex: 3, activeIndex: 3 },
-    { name: "Orders", link: "/orders", selectedIndex: 4, activeIndex: 4 },
-    // { name: "Activity", link: "/activities", selectedIndex: 5, activeIndex: 5 },
-    { name: "Inventory", link: "/inventory", selectedIndex: 6, activeIndex: 6},
-    { name: "Settings", link: "/settings", selectedIndex: 7, activeIndex: 7 },
+    { name: "Home", link: "/", selectedIndex: 0, activeIndex: 0 },
 ];
 
-const Header = ({ auth, profile, logout }) => {
+const Header = () => {
     const classes = useStyles();
     const theme = useTheme();
     const iOS = process.browser && /iPad|iPhone|ipod/.test(navigator.userAgent);
@@ -159,7 +144,7 @@ const Header = ({ auth, profile, logout }) => {
 
     const handleSignOut = () => {
         // handleUserMenuClose()
-        logout();
+        // logout();
     };
 
 
@@ -245,7 +230,7 @@ const Header = ({ auth, profile, logout }) => {
                                                 variant={"body2"}
                                                 className={classes.userName}
                                             >
-                                                {profile.fullName}
+                                                Name Here
                                             </Typography>
                                         </Grid>
                                         <Grid item >
@@ -260,7 +245,7 @@ const Header = ({ auth, profile, logout }) => {
                                 </Grid>
                                 <Grid item>
                                     <Avatar
-                                        src={profile.avatar}
+                                        // src={profile.avatar}
                                         aria-controls={"user-menu"}
                                         onClick={handleUserMenuOpen}
                                         style={{ cursor: "pointer" }}
@@ -278,7 +263,7 @@ const Header = ({ auth, profile, logout }) => {
                                             onClick={() => {handleUserMenuClose();
                                                 console.log("to user account overview")}}
                                         >
-                                            {profile.firstName}
+                                            Name
                                         </MenuItem>
                                         <MenuItem
                                             onClick={() => {handleUserMenuClose(); console.log("edit profile")}}
@@ -314,4 +299,4 @@ const Header = ({ auth, profile, logout }) => {
     );
 };
 
-export default connect(mapStateToProps, actions)(Header);
+export default Header;

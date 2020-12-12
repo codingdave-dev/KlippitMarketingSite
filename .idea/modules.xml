@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/reactJS-starter-withReduxFirebase-MaterialUI.iml" filepath="$PROJECT_DIR$/.idea/reactJS-starter-withReduxFirebase-MaterialUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/reactJS-starter-MaterialUI.iml" filepath="$PROJECT_DIR$/.idea/reactJS-starter-MaterialUI.iml" />
     </modules>
   </component>
 </project>
