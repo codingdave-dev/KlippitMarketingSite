@@ -1,6 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-// const themeMain = '#ff3333'
+const themePrimary = '#108DAA'
+const themeAqua = '#8AC5CC'
+const themeText = '#292D36'
 //
 // const textGrey = '#4d4d4d'
 // const green = '#009900'
@@ -9,9 +11,12 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 // Create a theme instance.
 const theme = createMuiTheme({
-    // palette: {
-    //
-    // },
+    palette: {
+        primary: {main: themePrimary},
+        custom: {
+            aqua: themeAqua
+        }
+    },
     typography: {
         // tab: {
         //     fontFamily: 'Raleway',

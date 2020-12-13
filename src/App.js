@@ -2,6 +2,7 @@ import React, { Fragment} from "react";
 
 import { Switch, Route } from "react-router-dom";
 import Header from "./ui/Header";
+import Typography from "@material-ui/core/Typography";
 
 
 
@@ -14,7 +15,9 @@ const App = () => {
             <Header />
 
             <Switch>
-                <Route path={"/"}>HOME</Route>
+                <Route path={"/"}>
+                    TEST
+                </Route>
 
 
             </Switch>
