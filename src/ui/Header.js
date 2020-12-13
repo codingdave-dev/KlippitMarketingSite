@@ -17,8 +17,10 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
+
+import {useHistory} from 'react-router-dom'
+
 
 // NAV IMAGES
 import klippitLogo from '../assets/logo/klippitLogo.png'
@@ -50,17 +52,34 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: '66px'
   },
 
-
-
-
-
-
-
-
-  appBar: {
-    zIndex: theme.zIndex.modal + 1,
-    height: '100px'
+  navLogo: {
+    marginRight: '10px',
+    cursor: 'pointer'
   },
+  navLink: {
+    marginLeft: '60px',
+    cursor: 'pointer'
+  },
+  navButton: {
+    marginLeft: 'auto',
+    cursor: 'pointer'
+  },
+
+
+
+
+
+
+
+
+  // appBar: {
+  //   zIndex: theme.zIndex.modal + 1,
+  //   backgroundColor: theme.palette.primary.main,
+  //   height: '100px',
+  //   paddingLeft: '212px',
+  //   paddingRight: '66px',
+  //   alignsItems: 'center'
+  // },
 
 
   tabs: {
@@ -151,6 +170,8 @@ const Header = () => {
 
   const [openDrawer, setOpenDrawer] = useState(false);
 
+  const history = useHistory()
+
 
 
 
@@ -176,33 +197,31 @@ const Header = () => {
   // };
 
   const tabs = (
-      <Fragment>
-        <Grid item container alignItems={'center'}>
-          <Grid item>
-            <img src={klippitLogo} alt="Klippit Logo"/>
-          </Grid>
-          <Grid item style={{marginLeft: '71px'}}>
-            <img src={whyKlippit} alt="Why Klippit"/>
-          </Grid>
-          <Grid item style={{marginLeft: '60px'}}>
-            <img src={demo} alt="Demo"/>
-          </Grid>
-          <Grid item style={{marginLeft: '60px'}}>
-            <img src={press} alt="Press"/>
-          </Grid>
 
 
+      <Grid item container alignItems={'center'} >
+        <Grid item className={classes.navLogo}>
+          <img src={klippitLogo} alt="Klippit Logo" onClick={() => history.push('/')}/>
         </Grid>
-        <Grid item container>
-          <Grid item style={{backgroundColor: 'red'}}>
-            <img src={joinButton} alt="Join Button" />
-          </Grid>
+        <Grid item   className={classes.navLink}>
+          <img src={whyKlippit} alt="Why Klippit" onClick={() => history.push('/whyKlippit')}/>
+        </Grid>
+        <Grid item   className={classes.navLink}>
+          <img src={demo} alt="Demo" onClick={() => history.push('/demo')}/>
+        </Grid>
+        <Grid item  className={classes.navLink}>
+          <img src={press} alt="Press" onClick={() => history.push('/press')}/>
+        </Grid>
+        <Grid item className={classes.navButton} >
+          <img src={joinButton} alt="Join Button" onClick={() => history.push('/join')}/>
         </Grid>
 
-      </Fragment>
+
+      </Grid>
 
 
     // <Fragment>
+    //   <img src={klippitLogo} alt="Klippit Logo"/>
     //
     //
     //
@@ -242,7 +261,7 @@ const Header = () => {
               }}
               divider
               button
-              component={Link}
+              // component={Link}
               to={route.link}
               selected={value === route.activeIndex}
               classes={{ selected: classes.drawerItemSelected }}
@@ -267,9 +286,10 @@ const Header = () => {
 
   return (
       <Grid item container alignItems={'center'} className={classes.navBar}>
-        <Grid item>
-          {tabs}
-        </Grid>
+        {tabs}
+        {/*<Grid item>*/}
+        {/*  */}
+        {/*</Grid>*/}
       </Grid>
     // <Fragment>
     //   <ElevationScroll>
@@ -282,7 +302,7 @@ const Header = () => {
     //     </AppBar>
     //
     //   </ElevationScroll>
-    //   <div className={classes.toolbarMargin} />
+    //   {/*<div className={classes.toolbarMargin} />*/}
     // </Fragment>
   );
 };

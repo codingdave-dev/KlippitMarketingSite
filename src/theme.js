@@ -24,12 +24,13 @@ const theme = createMuiTheme({
         //     fontWeight: '500',
         //     fontSize: '1rem',
         // },
-        // h1: {
-        //     color: themeMain,
-        //     fontFamily:'Raleway',
-        //     fontWeight: 400,
-        //     fontSize: '5rem',
-        // },
+        h1: {
+            color: themeText,
+            fontFamily:'Nunito',
+            fontWeight: 'bold',
+            fontSize: '40px',
+            lineHeight: '140%',
+        },
         // h3: {
         //     color: themeMain,
         //     fontFamily:'Raleway',
