@@ -31,40 +31,32 @@ const theme = createMuiTheme({
             fontSize: '40px',
             lineHeight: '140%',
         },
-        // h3: {
-        //     color: themeMain,
-        //     fontFamily:'Raleway',
-        //     fontWeight: 400,
-        //     fontSize: '3rem',
-        // },
-        // h5: {
-        //     color: themeMain,
-        //     fontFamily: 'Raleway',
-        //     fontSize: '2rem'
-        // },
-        // h6: {
-        //     color: themeMain,
-        //     fontFamily: 'Raleway',
-        //     fontSize: '1.5rem'
-        // },
-        // body1: {
-        //     color: textGrey,
-        //     fontFamily:'Raleway',
-        //     fontSize: '1.2rem',
-        //     lineHeight: 1,
-        // },
-        // subtitle2: {
-        //     color: textGrey,
-        //     fontFamily:'Raleway',
-        //     fontSize: '1rem',
-        //     lineHeight: 1,
-        // },
-        // caption: {
-        //     color: textGrey,
-        //     fontFamily:'Raleway',
-        //     fontSize: '0.5rem',
-        //     lineHeight: 1,
-        // }
+        h3: {
+            color: themeText,
+            fontFamily:'Montserrat',
+            fontSize: '18px',
+            lineHeight: '160%',
+        },
+        h4: {
+            color: themeText,
+            fontFamily:'Montserrat',
+            fontSize: '22px',
+            fontWeight: 600,
+            lineHeight: '160%',
+        },
+
+        h6: {
+            color: '#666666',
+            fontFamily:'Nunito',
+            fontSize: '18px',
+            lineHeight: '160%',
+        },
+        subtitle1: {
+            color: themeText,
+            fontFamily:'Nunito',
+            fontSize: '16px',
+            lineHeight: '140%',
+        },
     },
     overrides: {
         // MuiFormLabel: {
@@ -82,11 +74,11 @@ const theme = createMuiTheme({
         //         padding: 8
         //     }
         // },
-        // MuiRating: {
-        //     root: {
-        //         color: themeMain
-        //     }
-        // },
+        MuiRating: {
+            root: {
+                color: themePrimary
+            }
+        },
 
     }
 });
