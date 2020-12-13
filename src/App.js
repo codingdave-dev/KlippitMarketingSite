@@ -5,6 +5,7 @@ import Header from "./ui/Header";
 import Typography from "@material-ui/core/Typography";
 import Home from "./pages/Home";
 import Newsletter from "./ui/Newsletter";
+import Footer from "./ui/Footer";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         </Route>
       </Switch>
         <Newsletter/>
+        <Footer/>
     </Fragment>
   );
 };
