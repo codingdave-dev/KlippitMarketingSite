@@ -31,6 +31,13 @@ const theme = createMuiTheme({
             fontSize: '40px',
             lineHeight: '140%',
         },
+        h2: {
+            color: themeText,
+            fontFamily:'Nunito',
+            fontWeight: 'bold',
+            fontSize: '36px',
+            lineHeight: '140%',
+        },
         h3: {
             color: themeText,
             fontFamily:'Montserrat',
