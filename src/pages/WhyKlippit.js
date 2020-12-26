@@ -7,6 +7,9 @@ import image3 from "../assets/whyKlippit/headerImage.png";
 import Typography from "@material-ui/core/Typography";
 import roundSphere from "../assets/homePage/sphere.png";
 import iPhoneBody from "../assets/homePage/iPhoneBody.png";
+import TestimonalCard from "../ui/TestimonalCard";
+import HowKlippitWorksItem from "../ui/HowKlippitWorksItem";
+import FrequentlyAskedQuestionsItem from "../ui/FrequentlyAskedQuestionsItem";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -160,36 +163,107 @@ const WhyKlippit = () => {
 
                 <Grid item style={{ marginTop: "70px" }}>
                   <Typography variant={"h6"}>
-                    With Klippit, everyone can use their natural influence to
-                    support
+                      At Klippit, we believe everyone can be an influencer. We
                   </Typography>
                 </Grid>
                 <Grid item>
                   <Typography variant={"h6"}>
-                    local businesses - and earn cash!
+                      make it easy for you to find deals at local hotspots, and earn
                   </Typography>
                 </Grid>
+                  <Grid item>
+                      <Typography variant={"h6"}>
+                          extra cash just by shopping and sharing!
+                      </Typography>
+                  </Grid>
 
-                <Grid item style={{ marginTop: "46px" }}>
-                  <Typography variant={"h6"}>
-                    &bull; Join to see exclusive specials from local businesses.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h6"}>
-                    &bull; Earn money when you shop and share your photos.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h6"}>
-                    &bull; When your friends shop, you earn even more!
-                  </Typography>
-                </Grid>
+
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
+
+        {/*HOW KLIPPIT WORKS*/}
+        <Grid
+            item
+            container
+            style={{
+                backgroundColor: "#8AC5CC",
+                paddingTop: "66px",
+                paddingLeft: "140px",
+                paddingRight: "140px",
+            }}
+            direction={"column"}
+        >
+            <Grid item>
+                <Typography variant={"h6"} style={{fontSize: '28px', fontWeight: 'regular', color: theme.palette.common.black, letterSpacing: '4px'}}>HOW KLIPPIT WORKS</Typography>
+            </Grid>
+
+
+            <Grid item style={{marginTop: '40px'}}>
+                <Grid item container>
+                    <Grid item md={5}>
+                        <Typography variant={"h1"}>For Businesses</Typography>
+                    </Grid>
+                    <Grid item md={7}>
+                        <Grid item container direction={'column'}>
+                            <Grid item>
+                                <HowKlippitWorksItem value={'01'} title={'CREATE CAMPAIGN'} description={'Sign in to create your influencer marketing campaign in just a few clicks! Simply create a name to begin setting up your campaign.'}/>
+                            </Grid>
+                            <Grid item>
+                                <HowKlippitWorksItem value={'02'} title={'DEFINE PROMOTIONS'} description={'Next, decide what savings you’ll be offering to your local influencers and how much they can earn!'}/>
+                            </Grid>
+
+                            <Grid item>
+                                <HowKlippitWorksItem value={'03'} title={'SET SHARING REQUIREMNETS'} description={'Tell influencers how to share their purchase with friends, and redeem their Klippit Kash.'}/>
+                            </Grid>
+
+                            <Grid item>
+                                <HowKlippitWorksItem value={'04'} title={'PUBLISH LIVE'} description={'When you’re ready, set the promotion live.'}/>
+                            </Grid>
+
+                            <Grid item>
+                                <HowKlippitWorksItem value={'05'} title={'START LEARNING'} description={'When customers shop and post their purchases, you both earn! '}/>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+
+
+        {/*FAQ*/}
+
+        <Grid item container direction={'column'} style={{marginTop: '4em', marginBottom: '6em'}}>
+
+            <Grid item>
+                <Typography variant={"h1"} style={{fontSize: '45px', fontWeight: 400, textAlign: 'center'}}>Frequently Asked Questions</Typography>
+            </Grid>
+
+            <Grid item style={{marginTop: '4em'}}>
+                <Grid item container style={{paddingLeft: '4em', paddingRight: '4em'}}>
+                    <Grid item md={6}>
+                        <Grid item container direction={'column'}>
+                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid item md={6}>
+                        <Grid item container  direction={'column'}>
+                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
   );
 };
