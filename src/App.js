@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Home from "./pages/Home";
 import Newsletter from "./ui/Newsletter";
 import Footer from "./ui/Footer";
+import WhyKlippit from "./pages/WhyKlippit";
 
 const App = () => {
   return (
@@ -16,6 +17,9 @@ const App = () => {
         <Route exact path={"/"}>
           <Home />
         </Route>
+          <Route exact path={"/whyKlippit"}>
+              <WhyKlippit />
+          </Route>
       </Switch>
         <Newsletter/>
         <Footer/>
