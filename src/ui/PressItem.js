@@ -16,9 +16,9 @@ const PressItem = ({img, date, title, description, link}) => {
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     return (
-        <Grid item container style={{marginTop: '2.5em', marginBottom: '2.5em'}}>
+        <Grid item container style={{marginTop: '2.5em', marginBottom: '2.5em', paddingLeft: '10em', paddingRight: '10em',}}>
             <Grid item md={6} style={{paddingRight: '2.5em'}}>
-                <Grid item container justify={'flex-end'}>
+                <Grid item container >
                     <Grid item>
                         <img src={placeholder} alt={`${title} image`}/>
                     </Grid>

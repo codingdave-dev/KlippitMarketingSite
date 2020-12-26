@@ -14,8 +14,8 @@ const BlogItem = ({date, title, description}) => {
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     return (
-        <Grid item container direction={'column'} alignItems={'center'} style={{paddingLeft: '10em', paddingRight: '10em', marginTop: '3em', marginBottom: '3em'}}>
-            <Grid item container direction={'column'} style={{backgroundColor: 'white', padding: '2em'}}>
+        <Grid item container direction={'column'} alignItems={'center'} style={{ marginTop: '3em', marginBottom: '3em', paddingLeft: '10em', paddingRight: '10em'}}>
+            <Grid item container direction={'column'} style={{backgroundColor: 'white', padding: '2em', borderRadius: '5px'}}>
                 <Grid item>
                     <Typography variant={'h6'} style={{fontSize: '21px'}}>{date}</Typography>
                 </Grid>

@@ -21,11 +21,11 @@ const Press = () => {
                 <Typography variant={"h1"} style={{fontSize: '45px', fontWeight: 400, textAlign: 'center'}}>Press</Typography>
             </Grid>
 
-            <Grid item  style={{marginLeft: '5em', marginRight: '5em'}}>
+            <Grid item  >
                 <PressItem date={'SEPTEMBER 1, 2020'} title={'Title Goes Here'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ea eius facere facilis fugit iusto, molestias nam non tenetur velit.'}/>
             </Grid>
 
-            <Grid item style={{marginLeft: '5em', marginRight: '5em'}} >
+            <Grid item >
                 <PressItem date={'SEPTEMBER 2, 2020'} title={'Title Goes Here'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ea eius facere facilis fugit iusto, molestias nam non tenetur velit.'}/>
             </Grid>
 
