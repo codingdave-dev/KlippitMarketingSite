@@ -37,7 +37,19 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             fontSize: "18px",
         }
-    }
+    },
+    leftContainer: {
+        paddingRight: "2.5em",
+        [theme.breakpoints.down('md')]: {
+            paddingRight: "1em",
+        }
+    },
+    rightContainer: {
+        paddingLeft: "2.5em",
+        [theme.breakpoints.down('md')]: {
+            paddingLeft: "1em",
+        }
+    },
 }));
 
 const PressItem = ({ img, date, title, description, link }) => {
@@ -45,8 +57,8 @@ const PressItem = ({ img, date, title, description, link }) => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Grid item container alignItems={"center"}>
-      <Grid item lg={4} md={4} sm={8} xs={8} style={{ paddingRight: "2.5em" }}>
+    <Grid item container alignItems={"center"} className={classes.container}>
+      <Grid item lg={4} md={4} sm={8} xs={8} className={classes.leftContainer} >
         <Grid item container>
           <Grid
             item
@@ -63,7 +75,7 @@ const PressItem = ({ img, date, title, description, link }) => {
         </Grid>
       </Grid>
 
-      <Grid item lg={8} md={8} sm={4} xs={4} style={{ paddingLeft: "2.5em" }}>
+      <Grid item lg={8} md={8} sm={4} xs={4} className={classes.rightContainer} >
         <Grid item container direction={"column"}>
           <Grid item>
             <Typography variant={"h6"} className={classes.date} >
