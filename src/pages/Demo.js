@@ -4,7 +4,13 @@ import { Grid } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
-  // ADD STYLES HERE
+  iFrame: {
+    width: '1440px',
+    height: '1984px',
+    [theme.breakpoints.down('md')]: {
+      width: '95%',
+    }
+  }
 }));
 
 const Demo = () => {
@@ -19,9 +25,9 @@ const Demo = () => {
       style={{ marginTop: "6em", marginBottom: "6em" }}
     >
       <iframe
+          className={classes.iFrame}
         src="https://marvelapp.com/prototype/6g39gb2?emb=1&iosapp=false&frameless=false"
-        width="1440"
-        height="1984"
+
         allowTransparency="true"
         frameBorder="0"
       ></iframe>

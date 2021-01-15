@@ -13,7 +13,10 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '33px',
         paddingBottom: '56px',
         paddingLeft: '40px',
-        paddingRight: '40px'
+        paddingRight: '40px',
+        [theme.breakpoints.down('md')]: {
+          marginTop: '1em',
+        }
     },
     avatar: {
         height: '90px',

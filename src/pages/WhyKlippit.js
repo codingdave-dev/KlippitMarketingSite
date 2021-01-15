@@ -9,6 +9,7 @@ import roundSphere from "../assets/homePage/sphere.png";
 import iPhoneMockup from '../assets/whyKlippit/iPhoneMockupWHY.png'
 import HowKlippitWorksItem from "../ui/HowKlippitWorksItem";
 import FrequentlyAskedQuestionsItem from "../ui/FrequentlyAskedQuestionsItem";
+import {brown} from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -22,12 +23,36 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "10em",
     paddingLeft: "12em",
     paddingRight: "12em",
+      [theme.breakpoints.down('md')]: {
+        paddingLeft: '5em',
+        paddingRight: '5em',
+      }
   },
-  image: {
-    // width: '440px'
-  },
+    imageTiles: {
+        width: '100%'
+    },
     iPhone: {
       width: '100%'
+    },
+    mainLeftContainer: {
+        paddingRight: "4em",
+        [theme.breakpoints.down('md')]: {
+            paddingLeft: '1.5em',
+            paddingRight: '1.5em'
+        }
+    },
+    mainRightContainer: {
+        paddingLeft: "4em",
+        [theme.breakpoints.down('md')]: {
+            paddingLeft: '1.5em',
+            paddingRight: '1.5em'
+        }
+    },
+    businessTitle: {
+      [theme.breakpoints.down('md')]: {
+          fontSize: '36px'
+      }
+
     }
 }));
 
@@ -75,7 +100,7 @@ const WhyKlippit = () => {
     <Grid container direction={"column"}>
       {/*HEADER*/}
       <Grid item container className={classes.container}>
-        <Grid item md={6}>
+        <Grid item lg={6} md={6} sm={12} xs={12}>
           <Grid item container className={classes.textContainer}>
             <Grid item>
               <Grid item container direction={"column"}>
@@ -96,7 +121,7 @@ const WhyKlippit = () => {
             </Grid>
           </Grid>
         </Grid>{" "}
-        <Grid item md={6}>
+        <Grid item lg={6} md={6} sm={12} xs={12}>
           <Grid item container justify={"center"}>
             <Grid item>
               <img
@@ -115,11 +140,12 @@ const WhyKlippit = () => {
         container
         style={{ paddingTop: "60px", paddingBottom: "60px" }}
       >
-        <Grid item md={6}>
+        <Grid item lg={6} md={6} sm={12} xs={12}>
           <Grid
             item
             container
-            style={{ paddingLeft: "12em", paddingRight: "12em" }}
+            className={classes.mainLeftContainer}
+            // style={{ paddingLeft: "12em", paddingRight: "12em" }}
             direction={"column"}
           >
             <Grid item>
@@ -153,8 +179,8 @@ const WhyKlippit = () => {
           </Grid>
         </Grid>
 
-        <Grid item md={6} style={{ paddingLeft: "4em" }}>
-          <img src={roundSphere} alt="Round Sphere" />
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
+          <img src={roundSphere} alt="Round Sphere" className={classes.imageTiles}/>
         </Grid>
       </Grid>
 
@@ -241,10 +267,10 @@ const WhyKlippit = () => {
 
             <Grid item style={{marginTop: '40px'}}>
                 <Grid item container>
-                    <Grid item md={5}>
-                        <Typography variant={"h1"}>For Businesses</Typography>
+                    <Grid item lg={5} md={5}>
+                        <Typography variant={"h1"} className={classes.businessTitle}>For Businesses</Typography>
                     </Grid>
-                    <Grid item md={7}>
+                    <Grid item  lg={7} md={7}>
                         <Grid item container direction={'column'}>
                             <Grid item>
                                 <HowKlippitWorksItem value={'01'} title={'CREATE CAMPAIGN'} description={'Sign in to create your influencer marketing campaign in just a few clicks! Simply create a name to begin setting up your campaign.'}/>

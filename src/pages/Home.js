@@ -19,12 +19,36 @@ import TestimonalCard from "../ui/TestimonalCard";
 const useStyles = makeStyles((theme) => ({
   heading: {
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6))",
+    [theme.breakpoints.down('md')]: {
+      fontSize: '36px',
+      textAlign: 'center'
+    }
   },
   subHeading: {
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6))",
+    [theme.breakpoints.down('md')]: {
+      fontSize: '15px'
+    }
   },
   iPhone: {
     width: '100%'
+  },
+  imageTiles: {
+    width: '100%'
+  },
+  mainLeftContainer: {
+    paddingRight: "4em",
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: '1.5em',
+      paddingRight: '1.5em'
+    }
+  },
+  mainRightContainer: {
+    paddingLeft: "4em",
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: '1.5em',
+      paddingRight: '1.5em'
+    }
   }
 }));
 
@@ -70,7 +94,7 @@ const Home = () => {
         container
         style={{ paddingTop: "132px", paddingBottom: "106px" }}
       >
-        <Grid item md={6} style={{ paddingRight: "4em" }}>
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}  >
           <Grid item container alignItems={"flex-end"} direction={"column"}>
             <Grid item>
               <Grid item container direction={"column"}>
@@ -118,8 +142,8 @@ const Home = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item md={6} style={{ paddingLeft: "4em" }}>
-          <img src={squareTiles} alt="Square Photo Tiles" />
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}  >
+          <img src={squareTiles} alt="Square Photo Tiles" className={classes.imageTiles}/>
         </Grid>
       </Grid>
 
@@ -146,7 +170,10 @@ const Home = () => {
               <Grid
                 key={card.id}
                 item
-                md={4}
+                lg={4}
+                md={6}
+                sm={6}
+                xs={6}
                 style={{ paddingLeft: "5px", paddingRight: "5px" }}
               >
                 <TestimonalCard
@@ -168,7 +195,7 @@ const Home = () => {
         container
         style={{ paddingTop: "60px", paddingBottom: "60px" }}
       >
-        <Grid item md={6} style={{ paddingRight: "4em" }}>
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}>
           <Grid item container alignItems={"flex-end"} direction={"column"}>
             <Grid item>
               <Grid item container direction={"column"}>
@@ -229,8 +256,8 @@ const Home = () => {
           </Grid>
         </Grid>
 
-        <Grid item md={6} style={{ paddingLeft: "4em" }}>
-          <img src={roundSphere} alt="Round Sphere" />
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
+          <img src={roundSphere} alt="Round Sphere" className={classes.imageTiles}/>
         </Grid>
       </Grid>
 
@@ -244,7 +271,7 @@ const Home = () => {
           backgroundColor: "#F1F3F4",
         }}
       >
-        <Grid item md={6} style={{ paddingRight: "4em" }}>
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}>
           <Grid item container justify={"flex-end"}>
             <Grid item>
               <img src={iPhoneMockup} alt="iPhone Layout" className={classes.iPhone}/>
@@ -252,7 +279,7 @@ const Home = () => {
           </Grid>
         </Grid>
 
-        <Grid item md={6} style={{ paddingLeft: "4em" }}>
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
           <Grid item container direction={"column"}>
             <Grid item>
               <Grid item container direction={"column"}>

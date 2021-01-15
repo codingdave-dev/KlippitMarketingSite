@@ -19,18 +19,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import Grid from "@material-ui/core/Grid";
 
-import {useHistory} from 'react-router-dom'
-
+import { useHistory } from "react-router-dom";
 
 // NAV IMAGES
-import klippitLogo from '../assets/logo/klippitLogo.png'
-import whyKlippit from '../assets/nav/whyKlippit.png'
-import demo from '../assets/nav/demo.png'
-import press from '../assets/nav/press.png'
-import joinButton from '../assets/nav/joinButton.png'
-
-
-
+import klippitLogo from "../assets/logo/klippitLogo.png";
+import whyKlippit from "../assets/nav/whyKlippit.png";
+import demo from "../assets/nav/demo.png";
+import press from "../assets/nav/press.png";
+import joinButton from "../assets/nav/joinButton.png";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -47,59 +43,61 @@ function ElevationScroll(props) {
 const useStyles = makeStyles((theme) => ({
   navBar: {
     backgroundColor: theme.palette.primary.main,
-    height: '100px',
-    paddingLeft: '212px',
-    paddingRight: '66px'
+    height: "100px",
+    paddingLeft: "212px",
+    paddingRight: "66px",
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "100px",
+      paddingRight: "30px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
   },
 
   navLogo: {
-    marginRight: '10px',
-    cursor: 'pointer'
+    marginRight: "10px",
+    cursor: "pointer",
   },
   navLink: {
-    marginLeft: '60px',
-    cursor: 'pointer'
+    marginLeft: "60px",
+    cursor: "pointer",
   },
   navButton: {
-    marginLeft: 'auto',
-    cursor: 'pointer'
+    marginLeft: "auto",
+    cursor: "pointer",
   },
 
+  logo: {},
+  linkImg: {},
+  button: {},
 
-
-
-
-
-
-
-  // appBar: {
-  //   zIndex: theme.zIndex.modal + 1,
-  //   backgroundColor: theme.palette.primary.main,
-  //   height: '100px',
-  //   paddingLeft: '212px',
-  //   paddingRight: '66px',
-  //   alignsItems: 'center'
-  // },
-
-
-  tabs: {
-    "& .MuiTabs-indicator": {
-      backgroundColor: theme.palette.common.white,
-    },
-  },
-  tab: {
-    ...theme.typography.tab,
-    minWidth: 10,
-    marginLeft: "20px",
-    color: theme.palette.common.white,
-    "&:hover": {
-      color: theme.palette.common.white,
-      opacity: 1,
-    },
-  },
   drawer: {
     backgroundColor: theme.palette.primary.main,
   },
+  appBar: {
+    zIndex: theme.zIndex.modal + 1,
+    backgroundColor: theme.palette.primary.main,
+  },
+
+  //
+  // tabs: {
+  //   "& .MuiTabs-indicator": {
+  //     backgroundColor: theme.palette.common.white,
+  //   },
+  // },
+  // tab: {
+  //   ...theme.typography.tab,
+  //   minWidth: 10,
+  //   marginLeft: "20px",
+  //   color: theme.palette.common.white,
+  //   "&:hover": {
+  //     color: theme.palette.common.white,
+  //     opacity: 1,
+  //   },
+  // },
+
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "1em",
@@ -107,20 +105,9 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "1em",
     },
   },
-  drawerItem: {
-    ...theme.typography.tab,
-    color: "white",
-    opacity: "0.7",
-  },
-
-  drawerItemSelected: {
-    "& .MuiListItemText-root": {
-      opacity: 1,
-    },
-  },
 
   drawerIconContainer: {
-    // marginLeft: "auto",
+    marginLeft: "auto",
     "&:hover": {
       backgroundColor: "transparent",
     },
@@ -130,114 +117,66 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "30px",
   },
-
-
-
-  tabEnd: {
-    ...theme.typography.tab,
-    marginRight: "25px",
-  },
-  userContainer: {
-    marginRight: "1em",
-  },
-  userInfoContainer: {
-    marginRight: "0.7em",
-  },
-  userName: {
-    color: theme.palette.common.white,
-    fontWeight: 600,
-  },
-  userLocation: {
-    // color: theme.palette.common.hyperlink,
-  },
 }));
-
-const routes = [
-    { name: "Home", link: "/", selectedIndex: 0, activeIndex: 0 },
-    { name: "Why Klippit", link: "/why_klippit", selectedIndex: 1, activeIndex: 1 },
-    { name: "Demo", link: "/demo", selectedIndex: 2, activeIndex: 2 },
-    { name: "Press", link: "/press", selectedIndex: 3, activeIndex: 3},
-    ];
-
 
 const Header = () => {
   const classes = useStyles();
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|ipod/.test(navigator.userAgent);
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-
-  const [value, setValue] = useState(0);
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  const history = useHistory()
-
-
-
-
-
-
-
-
-
-  // const handleUserMenuOpen = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-  // const handleUserMenuClose = () => {
-  //   setAnchorEl(null);
-  // };
-  //
-  const handleChange = (e, newValue) => {
-    setValue(newValue);
-  };
-
-  // const handleSignOut = () => {
-  //   // handleUserMenuClose()
-  //   // logout();
-  // };
+  const history = useHistory();
 
   const tabs = (
-
-
-      <Grid item container alignItems={'center'} >
-        <Grid item className={classes.navLogo}>
-          <img src={klippitLogo} alt="Klippit Logo" onClick={() => history.push('/')}/>
-        </Grid>
-        <Grid item   className={classes.navLink}>
-          <img src={whyKlippit} alt="Why Klippit" onClick={() => history.push('/whyKlippit')}/>
-        </Grid>
-        <Grid item   className={classes.navLink}>
-          <img src={demo} alt="Demo" onClick={() => history.push('/demo')}/>
-        </Grid>
-        <Grid item  className={classes.navLink}>
-          <img src={press} alt="Press" onClick={() => history.push('/press')}/>
-        </Grid>
-        <Grid item className={classes.navButton} >
-          <img src={joinButton} alt="Join Button" onClick={() => history.push('/join')}/>
-        </Grid>
-
-
+    <Grid
+      item
+      container
+      direction={matchesSM ? "column" : "row"}
+      alignItems={"center"}
+    >
+      <Grid item className={classes.navLogo}>
+        <img
+          src={klippitLogo}
+          alt="Klippit Logo"
+          onClick={() => history.push("/")}
+          className={classes.logo}
+        />
       </Grid>
-
-
-    // <Fragment>
-    //   <img src={klippitLogo} alt="Klippit Logo"/>
-    //
-    //
-    //
-    //
-    //   {/*<Tabs value={value} onChange={handleChange} className={classes.tabs}>*/}
-    //   {/*  {routes.map((route, index) => (*/}
-    //   {/*    <Tab*/}
-    //   {/*      key={`${route}${index}`}*/}
-    //   {/*      className={classes.tab}*/}
-    //   {/*      component={Link}*/}
-    //   {/*      to={route.link}*/}
-    //   {/*      label={route.name}*/}
-    //   {/*    />*/}
-    //   {/*  ))}*/}
-    //   {/*</Tabs>*/}
-    // </Fragment>
+      <Grid item className={classes.navLink}>
+        <img
+          src={whyKlippit}
+          alt="Why Klippit"
+          onClick={() => history.push("/whyKlippit")}
+          className={classes.linkImg}
+        />
+      </Grid>
+      <Grid item className={classes.navLink}>
+        <img
+          src={demo}
+          alt="Demo"
+          onClick={() => history.push("/demo")}
+          className={classes.linkImg}
+        />
+      </Grid>
+      <Grid item className={classes.navLink}>
+        <img
+          src={press}
+          alt="Press"
+          onClick={() => history.push("/press")}
+          className={classes.linkImg}
+        />
+      </Grid>
+      <Grid item className={classes.navButton}>
+        <img
+          src={joinButton}
+          alt="Join Button"
+          onClick={() => history.push("/join")}
+          className={classes.button}
+        />
+      </Grid>
+    </Grid>
   );
 
   const drawer = (
@@ -252,25 +191,49 @@ const Header = () => {
       >
         <div className={classes.toolbarMargin} />
         <List disablePadding>
-          {routes.map((route) => (
-            <ListItem
-              key={`${route}${route.activeIndex}`}
+          <ListItem>
+            <img
+              src={whyKlippit}
+              alt="Why Klippit"
               onClick={() => {
-                setOpenDrawer(false);
-                setValue(route.activeIndex);
+                history.push("/whyKlippit");
+                setOpenDrawer(false)
               }}
-              divider
-              button
-              // component={Link}
-              to={route.link}
-              selected={value === route.activeIndex}
-              classes={{ selected: classes.drawerItemSelected }}
-            >
-              <ListItemText className={classes.drawerItem} disableTypography>
-                {route.name}
-              </ListItemText>
-            </ListItem>
-          ))}
+              className={classes.linkImg}
+            />
+          </ListItem>
+          <ListItem>
+            <img
+                src={demo}
+                alt="Demo"
+                onClick={() => {
+                  history.push("/demo");
+                  setOpenDrawer(false)
+                }}
+                className={classes.linkImg}
+            />
+          </ListItem>
+          <ListItem>
+            <img
+                src={press}
+                alt="Press"
+                onClick={() => {
+                  history.push("/press");
+                  setOpenDrawer(false)
+                }}
+                className={classes.linkImg}
+            />
+          </ListItem>
+          <ListItem>
+            <img
+                src={joinButton}
+                alt="Join Button"
+                onClick={() => {
+                  history.push("/join"); setOpenDrawer(false)
+                }}
+                className={classes.button}
+            />
+          </ListItem>
         </List>
       </SwipeableDrawer>
 
@@ -285,25 +248,32 @@ const Header = () => {
   );
 
   return (
-      <Grid item container alignItems={'center'} className={classes.navBar}>
-        {tabs}
-        {/*<Grid item>*/}
-        {/*  */}
-        {/*</Grid>*/}
-      </Grid>
-    // <Fragment>
-    //   <ElevationScroll>
-    //     <AppBar position={"fixed"} className={classes.appBar}>
-    //       <Toolbar>
-    //
-    //         {matches ? drawer : tabs}
-    //
-    //       </Toolbar>
-    //     </AppBar>
-    //
-    //   </ElevationScroll>
-    //   {/*<div className={classes.toolbarMargin} />*/}
-    // </Fragment>
+    <Fragment>
+      {!matchesSM && (
+        <Grid item container alignItems={"center"} className={classes.navBar}>
+          {tabs}
+        </Grid>
+      )}
+
+      {matchesSM && (
+        <Fragment>
+          <ElevationScroll>
+            <AppBar position={"fixed"} className={classes.appBar}>
+              <Toolbar>
+                <img
+                  src={klippitLogo}
+                  alt="Klippit Logo"
+                  onClick={() => history.push("/")}
+                  className={classes.logo}
+                />
+                {drawer}
+              </Toolbar>
+            </AppBar>
+          </ElevationScroll>
+          <div className={classes.toolbarMargin} />
+        </Fragment>
+      )}
+    </Fragment>
   );
 };
 
