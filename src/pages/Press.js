@@ -4,7 +4,6 @@ import {Grid} from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Typography from "@material-ui/core/Typography";
 import PressItem from "../ui/PressItem";
-import TestimonalCard from "../ui/TestimonalCard";
 import BlogItem from "../ui/BlogItem";
 
 const useStyles = makeStyles((theme) => ({
