@@ -6,6 +6,10 @@ import Typography from "@material-ui/core/Typography";
 import PressItem from "../ui/PressItem";
 import BlogItem from "../ui/BlogItem";
 
+import atlantaPodcastImg from '../assets/press/atlantaPodcast.png'
+import cohort8Img from '../assets/press/announcingCohart8.png'
+import businessRadioImg from '../assets/press/atlantaBusinessRadio.png'
+
 const useStyles = makeStyles((theme) => ({
     // ADD STYLES HERE
 }));
@@ -21,11 +25,15 @@ const Press = () => {
             </Grid>
 
             <Grid item  >
-                <PressItem date={'SEPTEMBER 1, 2020'} title={'Title Goes Here'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ea eius facere facilis fugit iusto, molestias nam non tenetur velit.'}/>
+                <PressItem img={atlantaPodcastImg} date={'January 1, 2021'} title={'Atlanta Startup Podcast'} description={'Atlanta Startup Podcast interview with our very own Chike Nwoke.'} link={'https://atlantastartuppodcast.com/ep-34-chike-nwoke-founder-klippit/'}/>
             </Grid>
 
             <Grid item >
-                <PressItem date={'SEPTEMBER 2, 2020'} title={'Title Goes Here'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ea eius facere facilis fugit iusto, molestias nam non tenetur velit.'}/>
+                <PressItem img={cohort8Img} date={'December 1, 2020'}  title={'Startup Runway'} description={'Chike Nwoke explaining how Klippit allows influencers to turn their selfies into savings.'} link={'https://startuprunway.org/company/klippit/'}/>
+            </Grid>
+
+            <Grid item >
+                <PressItem img={businessRadioImg} date={'November 1, 2020'}  title={'Atlanta Business Radio Interview'} description={'Chike Nwoke talking to Atlanta Business Radio X'} link={'https://businessradiox.com/podcast/atlantabusinessradio/klippit/'}/>
             </Grid>
 
 

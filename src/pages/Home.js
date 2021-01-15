@@ -6,7 +6,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import squareTiles from "../assets/homePage/photoSquares.png";
 import mainButton from "../assets/homePage/main_button.png";
 import roundSphere from "../assets/homePage/sphere.png";
-import iPhoneBody from "../assets/homePage/iPhoneBody.png";
+import iPhoneMockup from "../assets/homePage/iPhoneMockupHP.png";
 
 // TESTIMONAL IMAGES
 import card1Image from "../assets/homePage/testimonals/card1.png";
@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
   subHeading: {
     filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6))",
   },
+  iPhone: {
+    width: '100%'
+  }
 }));
 
 const testimonals = [
@@ -244,7 +247,7 @@ const Home = () => {
         <Grid item md={6} style={{ paddingRight: "4em" }}>
           <Grid item container justify={"flex-end"}>
             <Grid item>
-              <img src={iPhoneBody} alt="iPhone Layout" />
+              <img src={iPhoneMockup} alt="iPhone Layout" className={classes.iPhone}/>
             </Grid>
           </Grid>
         </Grid>

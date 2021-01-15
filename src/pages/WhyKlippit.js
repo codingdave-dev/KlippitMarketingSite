@@ -6,8 +6,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import image3 from "../assets/whyKlippit/headerImage.png";
 import Typography from "@material-ui/core/Typography";
 import roundSphere from "../assets/homePage/sphere.png";
-import iPhoneBody from "../assets/homePage/iPhoneBody.png";
-import TestimonalCard from "../ui/TestimonalCard";
+import iPhoneMockup from '../assets/whyKlippit/iPhoneMockupWHY.png'
 import HowKlippitWorksItem from "../ui/HowKlippitWorksItem";
 import FrequentlyAskedQuestionsItem from "../ui/FrequentlyAskedQuestionsItem";
 
@@ -27,7 +26,46 @@ const useStyles = makeStyles((theme) => ({
   image: {
     // width: '440px'
   },
+    iPhone: {
+      width: '100%'
+    }
 }));
+
+const faqLeft = [
+    {
+        id: 0,
+        faq: 'Is there a minimum number of followers a person needs to be considered an influencer?',
+        answer: 'Every individual has natural influence - and every small business can benefit from that unique and personal reach in a highly measurable way.'
+    },
+    {
+        id: 1,
+        faq: 'How do the influencers know what content to create?',
+        answer: 'When you are creating your campaign, you will need to give instructions on what type of content you want influencers to create in order to redeem your offer.'
+    },
+    {
+        id: 2,
+        faq: 'How do I get started on our first influencer campaign?',
+        answer: 'To get started, click the "join waitlist" button.  You can create your first campaign early.  It will be available when we launch!'
+    }
+]
+
+const faqRight = [
+    {
+        id: 0,
+        faq: 'How do i recruit influencers for my campaign?',
+        answer: "You don't need to recruit influencers for your campaign.  Klippit is designed to do the work for you."
+    },
+    {
+        id: 1,
+        faq: 'How much does an influencer campaign cost?',
+        answer: 'Unlike other influencer marketing platforms, you will only be charged once people buy from you.  We take a transaction fee whenever someone purchases from your campaign.'
+    },
+    {
+        id: 2,
+        faq: 'What should I know about the FTC regulated disclosure laws?',
+        answer: 'When the FTC first introduced regulations for influencers, each publication written about a product or company had to feature the hashtags...'
+    }
+]
 
 const WhyKlippit = () => {
   const classes = useStyles();
@@ -133,7 +171,7 @@ const WhyKlippit = () => {
         <Grid item md={6} style={{ paddingRight: "4em" }}>
           <Grid item container justify={"center"}>
             <Grid item>
-              <img src={iPhoneBody} alt="iPhone Layout" />
+              <img src={iPhoneMockup} alt="iPhone Layout" className={classes.iPhone}/>
             </Grid>
           </Grid>
         </Grid>
@@ -248,17 +286,17 @@ const WhyKlippit = () => {
                 <Grid item container style={{paddingLeft: '4em', paddingRight: '4em'}}>
                     <Grid item md={6}>
                         <Grid item container direction={'column'}>
-                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
-                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
-                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                            {faqLeft.map(faq => (
+                                <FrequentlyAskedQuestionsItem key={faq.id} title={faq.faq} description={faq.answer}/>
+                            ))}
                         </Grid>
                     </Grid>
 
                     <Grid item md={6}>
                         <Grid item container  direction={'column'}>
-                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
-                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
-                            <FrequentlyAskedQuestionsItem title={'Question Here?'} description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolore error ex exercitationem illum nisi repellat temporibus. Distinctio, harum?'}/>
+                            {faqRight.map(faq => (
+                                <FrequentlyAskedQuestionsItem key={faq.id} title={faq.faq} description={faq.answer}/>
+                            ))}
                         </Grid>
                     </Grid>
                 </Grid>
