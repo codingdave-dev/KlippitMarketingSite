@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 
 import { Switch, Route } from "react-router-dom";
 import Header from "./ui/Header";
-import Typography from "@material-ui/core/Typography";
 import Home from "./pages/Home";
 import Newsletter from "./ui/Newsletter";
 import Footer from "./ui/Footer";
@@ -19,18 +18,18 @@ const App = () => {
         <Route exact path={"/"}>
           <Home />
         </Route>
-          <Route exact path={"/whyKlippit"}>
-              <WhyKlippit />
-          </Route>
-          <Route exact path={"/demo"}>
-              <Demo />
-          </Route>
-          <Route exact path={"/press"}>
-              <Press />
-          </Route>
+        <Route exact path={"/whyKlippit"}>
+          <WhyKlippit />
+        </Route>
+        <Route exact path={"/demo"}>
+          <Demo />
+        </Route>
+        <Route exact path={"/press"}>
+          <Press />
+        </Route>
       </Switch>
-        <Newsletter/>
-        <Footer/>
+      <Newsletter />
+      <Footer />
     </Fragment>
   );
 };

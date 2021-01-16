@@ -1,7 +1,6 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Typography from "@material-ui/core/Typography";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
@@ -11,63 +10,61 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "3em",
     paddingLeft: "10em",
     paddingRight: "10em",
-      [theme.breakpoints.down('md')]: {
-          paddingLeft: "6em",
-          paddingRight: "6em",
-      },
-      [theme.breakpoints.down('sm')]: {
-          paddingLeft: "3em",
-          paddingRight: "3em",
-      }
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "6em",
+      paddingRight: "6em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "3em",
+      paddingRight: "3em",
+    },
   },
-    date: {
-        fontSize: "21px",
-        [theme.breakpoints.down('md')]: {
-            fontSize: "18px",
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "14px",
-        }
+  date: {
+    fontSize: "21px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "18px",
     },
-    title: {
-        fontSize: "28px",
-        [theme.breakpoints.down('md')]: {
-            fontSize: "25px",
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "21px",
-        }
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "14px",
     },
-    description: {
-        fontSize: "21px",
-        [theme.breakpoints.down('md')]: {
-            fontSize: "18px",
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "15px",
-        }
+  },
+  title: {
+    fontSize: "28px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "25px",
     },
-    readMoreText: {
-        fontSize: "21px",
-        color: theme.palette.primary.main,
-        cursor: "pointer",
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "16px",
-        }
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "21px",
     },
-    arrow: {
-        color: theme.palette.primary.main,
-        cursor: "pointer",
-        [theme.breakpoints.down('sm')]: {
-            fontSize: "16px",
-        }
+  },
+  description: {
+    fontSize: "21px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "18px",
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
+  },
+  readMoreText: {
+    fontSize: "21px",
+    color: theme.palette.primary.main,
+    cursor: "pointer",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px",
+    },
+  },
+  arrow: {
+    color: theme.palette.primary.main,
+    cursor: "pointer",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px",
+    },
+  },
 }));
 
 const BlogItem = ({ date, title, description, link }) => {
   const classes = useStyles();
-  const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       item
@@ -87,7 +84,7 @@ const BlogItem = ({ date, title, description, link }) => {
         }}
       >
         <Grid item>
-          <Typography variant={"h6"}  className={classes.date}>
+          <Typography variant={"h6"} className={classes.date}>
             {date}
           </Typography>
         </Grid>
@@ -122,7 +119,7 @@ const BlogItem = ({ date, title, description, link }) => {
             </Grid>
             <Grid item style={{ marginLeft: "10px" }}>
               <ArrowForwardIosIcon
-                  className={classes.arrow}
+                className={classes.arrow}
                 onClick={() => {
                   window.open(
                     `${link}`,

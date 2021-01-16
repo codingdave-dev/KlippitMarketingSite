@@ -1,7 +1,5 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Typography from "@material-ui/core/Typography";
 import PressItem from "../ui/PressItem";
 import BlogItem from "../ui/BlogItem";
@@ -9,10 +7,6 @@ import BlogItem from "../ui/BlogItem";
 import atlantaPodcastImg from "../assets/press/atlantaPodcast.png";
 import cohort8Img from "../assets/press/announcingCohart8.png";
 import businessRadioImg from "../assets/press/atlantaBusinessRadio.png";
-
-const useStyles = makeStyles((theme) => ({
-  // ADD STYLES HERE
-}));
 
 const press = [
   {
@@ -56,9 +50,6 @@ const blog = [
 ];
 
 const Press = () => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid container justify={"center"} direction={"column"}>
       <Grid item style={{ marginTop: "4em" }}>

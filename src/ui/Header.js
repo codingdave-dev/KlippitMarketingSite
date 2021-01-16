@@ -4,9 +4,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/styles";
 
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
@@ -15,7 +12,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 
 import Grid from "@material-ui/core/Grid";
 
@@ -75,13 +71,13 @@ const useStyles = makeStyles((theme) => ({
 
   drawer: {
     backgroundColor: theme.palette.primary.main,
-    paddingTop: '1.5em'
+    paddingTop: "1.5em",
   },
   appBar: {
     zIndex: theme.zIndex.modal + 1,
     backgroundColor: theme.palette.primary.main,
-    paddingTop: '1em',
-    paddingBottom: '1em'
+    paddingTop: "1em",
+    paddingBottom: "1em",
   },
 
   toolbarMargin: {
@@ -90,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       marginBottom: "1em",
     },
-
   },
 
   drawerIconContainer: {
@@ -105,9 +100,9 @@ const useStyles = makeStyles((theme) => ({
     width: "30px",
   },
   drawerItem: {
-    paddingTop: '1.5em',
-    paddingBottom: '1.5em'
-  }
+    paddingTop: "1.5em",
+    paddingBottom: "1.5em",
+  },
 }));
 
 const Header = () => {
@@ -165,10 +160,10 @@ const Header = () => {
           alt="Join Button"
           onClick={() => {
             window.open(
-                `https://klippitmerchant.com/`,
-                "_blank" // <- This is what makes it open in a new window.
+              `https://klippitmerchant.com/`,
+              "_blank" // <- This is what makes it open in a new window.
             );
-            setOpenDrawer(false)
+            setOpenDrawer(false);
           }}
           className={classes.button}
         />
@@ -187,52 +182,52 @@ const Header = () => {
         classes={{ paper: classes.drawer }}
       >
         <div className={classes.toolbarMargin} />
-        <List disablePadding >
+        <List disablePadding>
           <ListItem className={classes.drawerItem}>
             <img
               src={whyKlippit}
               alt="Why Klippit"
               onClick={() => {
                 history.push("/whyKlippit");
-                setOpenDrawer(false)
+                setOpenDrawer(false);
               }}
               className={classes.linkImg}
             />
           </ListItem>
           <ListItem className={classes.drawerItem}>
             <img
-                src={demo}
-                alt="Demo"
-                onClick={() => {
-                  history.push("/demo");
-                  setOpenDrawer(false)
-                }}
-                className={classes.linkImg}
+              src={demo}
+              alt="Demo"
+              onClick={() => {
+                history.push("/demo");
+                setOpenDrawer(false);
+              }}
+              className={classes.linkImg}
             />
           </ListItem>
           <ListItem className={classes.drawerItem}>
             <img
-                src={press}
-                alt="Press"
-                onClick={() => {
-                  history.push("/press");
-                  setOpenDrawer(false)
-                }}
-                className={classes.linkImg}
+              src={press}
+              alt="Press"
+              onClick={() => {
+                history.push("/press");
+                setOpenDrawer(false);
+              }}
+              className={classes.linkImg}
             />
           </ListItem>
           <ListItem className={classes.drawerItem}>
             <img
-                src={joinButton}
-                alt="Join Button"
-                onClick={() => {
-                  window.open(
-                      `https://klippitmerchant.com/`,
-                      "_blank" // <- This is what makes it open in a new window.
-                  );
-                  setOpenDrawer(false)
-                }}
-                className={classes.button}
+              src={joinButton}
+              alt="Join Button"
+              onClick={() => {
+                window.open(
+                  `https://klippitmerchant.com/`,
+                  "_blank" // <- This is what makes it open in a new window.
+                );
+                setOpenDrawer(false);
+              }}
+              className={classes.button}
             />
           </ListItem>
         </List>
