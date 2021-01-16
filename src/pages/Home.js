@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import {Fade, Grid} from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import squareTiles from "../assets/homePage/photoSquares.png";
@@ -258,7 +258,10 @@ const Home = () => {
         </Grid>
 
         <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
-          <img src={roundSphere} alt="Round Sphere" className={classes.imageTiles}/>
+          <Fade in={true} timeout={3000}>
+            <img src={roundSphere} alt="Round Sphere" className={classes.imageTiles}/>
+          </Fade>
+
         </Grid>
       </Grid>
 

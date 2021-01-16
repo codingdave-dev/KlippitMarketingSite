@@ -163,7 +163,13 @@ const Header = () => {
         <img
           src={joinButton}
           alt="Join Button"
-          onClick={() => history.push("/join")}
+          onClick={() => {
+            window.open(
+                `https://klippitmerchant.com/`,
+                "_blank" // <- This is what makes it open in a new window.
+            );
+            setOpenDrawer(false)
+          }}
           className={classes.button}
         />
       </Grid>
@@ -220,7 +226,11 @@ const Header = () => {
                 src={joinButton}
                 alt="Join Button"
                 onClick={() => {
-                  history.push("/join"); setOpenDrawer(false)
+                  window.open(
+                      `https://klippitmerchant.com/`,
+                      "_blank" // <- This is what makes it open in a new window.
+                  );
+                  setOpenDrawer(false)
                 }}
                 className={classes.button}
             />
