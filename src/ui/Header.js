@@ -81,23 +81,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
   },
 
-  //
-  // tabs: {
-  //   "& .MuiTabs-indicator": {
-  //     backgroundColor: theme.palette.common.white,
-  //   },
-  // },
-  // tab: {
-  //   ...theme.typography.tab,
-  //   minWidth: 10,
-  //   marginLeft: "20px",
-  //   color: theme.palette.common.white,
-  //   "&:hover": {
-  //     color: theme.palette.common.white,
-  //     opacity: 1,
-  //   },
-  // },
-
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "1em",
