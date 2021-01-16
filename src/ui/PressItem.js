@@ -24,18 +24,42 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "21px",
         [theme.breakpoints.down('md')]: {
             fontSize: "18px",
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "14px",
         }
     },
     title: {
         fontSize: "28px",
         [theme.breakpoints.down('md')]: {
             fontSize: "25px",
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "21px",
         }
     },
     description: {
         fontSize: "21px",
         [theme.breakpoints.down('md')]: {
             fontSize: "18px",
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "15px",
+        }
+    },
+    readMoreText: {
+        fontSize: "21px",
+        color: theme.palette.primary.main,
+        cursor: "pointer",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "16px",
+        }
+    },
+    arrow: {
+        color: theme.palette.primary.main,
+        cursor: "pointer",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "16px",
         }
     },
     leftContainer: {
@@ -58,7 +82,7 @@ const PressItem = ({ img, date, title, description, link }) => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid item container alignItems={"center"} className={classes.container}>
-      <Grid item lg={4} md={4} sm={8} xs={8} className={classes.leftContainer} >
+      <Grid item lg={4} md={4} sm={5} xs={8} className={classes.leftContainer} >
         <Grid item container>
           <Grid
             item
@@ -66,7 +90,7 @@ const PressItem = ({ img, date, title, description, link }) => {
             onClick={() => {
               window.open(
                 `${link}`,
-                "_blank" // <- This is what makes it open in a new window.
+                "_blank"
               );
             }}
           >
@@ -75,7 +99,7 @@ const PressItem = ({ img, date, title, description, link }) => {
         </Grid>
       </Grid>
 
-      <Grid item lg={8} md={8} sm={4} xs={4} className={classes.rightContainer} >
+      <Grid item lg={8} md={8} sm={7} xs={4} className={classes.rightContainer} >
         <Grid item container direction={"column"}>
           <Grid item>
             <Typography variant={"h6"} className={classes.date} >
@@ -106,11 +130,7 @@ const PressItem = ({ img, date, title, description, link }) => {
                       "_blank" // <- This is what makes it open in a new window.
                     );
                   }}
-                  style={{
-                    fontSize: "21px",
-                    color: theme.palette.primary.main,
-                    cursor: "pointer",
-                  }}
+                  className={classes.readMoreText}
                 >
                   READ MORE
                 </Typography>
@@ -123,10 +143,7 @@ const PressItem = ({ img, date, title, description, link }) => {
                       "_blank" // <- This is what makes it open in a new window.
                     );
                   }}
-                  style={{
-                    color: theme.palette.primary.main,
-                    cursor: "pointer",
-                  }}
+                  className={classes.arrow}
                 />
               </Grid>
             </Grid>

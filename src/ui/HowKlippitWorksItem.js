@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
     rightContainer: {
         [theme.breakpoints.down('md')]: {
             paddingLeft: '1em'
-        }
+        },
+      [theme.breakpoints.down('sm')]: {
+        paddingLeft: '2em'
+      }
     }
 }));
 

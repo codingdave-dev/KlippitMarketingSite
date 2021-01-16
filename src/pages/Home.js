@@ -5,6 +5,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import squareTiles from "../assets/homePage/photoSquares.png";
 import mainButton from "../assets/homePage/main_button.png";
+import roundSphere from '../assets/homePage/sphere.png'
+import iPhoneMockup from '../assets/homePage/iPhoneMockupHP.png'
 
 // TESTIMONAL IMAGES
 import card1Image from "../assets/homePage/testimonals/card1.png";
@@ -56,8 +58,8 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: '1.5em'
     },
     [theme.breakpoints.down('sm')]: {
-      paddingLeft: 0,
-      paddingRight: 0
+      paddingLeft: '1.5em',
+      paddingRight: '1.5em'
     }
   },
   mainRightContainer: {
@@ -68,8 +70,18 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       paddingTop: '1.5em',
-      paddingLeft: '1em',
-      paddingRight: '1em'
+      paddingLeft: '1.5em',
+      paddingRight: '1.5em'
+    }
+  },
+  testimonalContainer: {
+    backgroundColor: "#8AC5CC",
+    paddingTop: "66px",
+    paddingLeft: "140px",
+    paddingRight: "140px",
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: "30px",
+      paddingRight: "30px",
     }
   }
 }));
@@ -123,38 +135,13 @@ const Home = () => {
               <Grid item container direction={"column"} alignItems={matchesSM ? 'center' : null}>
                 <Grid item>
                   <Typography variant={"h1"} className={classes.heading}>
-                    Where everyday influencers
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h1"} className={classes.heading}>
-                    and local hotspots connect
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h1"} className={classes.heading}>
-                    and earn together.
+                    Where everyday influencers and local hotspots connect and earn together.
                   </Typography>
                 </Grid>
 
                 <Grid item style={{ marginTop: "42px" }}>
                   <Typography variant={"h3"} className={classes.subHeading}>
-                    Every individual has natural influence – and both people
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h3"} className={classes.subHeading}>
-                    and small businesses can benefit! With Klippit, companies
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h3"} className={classes.subHeading}>
-                    can easily create influencer marketing campaigns, and
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={"h3"} className={classes.subHeading}>
-                    individuals make money when they shop and share.
+                    Every individual has natural influence – and both people and small businesses can benefit! With Klippit, companies can easily create influencer marketing campaigns, and individuals make money when they shop and share.
                   </Typography>
                 </Grid>
 
@@ -173,194 +160,175 @@ const Home = () => {
       </Grid>
 
       {/*TESTIMONALS*/}
-      {/*<Grid*/}
-      {/*  item*/}
-      {/*  container*/}
-      {/*  style={{*/}
-      {/*    backgroundColor: "#8AC5CC",*/}
-      {/*    paddingTop: "66px",*/}
-      {/*    paddingLeft: "140px",*/}
-      {/*    paddingRight: "140px",*/}
-      {/*  }}*/}
-      {/*  direction={"column"}*/}
-      {/*  alignItems={"center"}*/}
-      {/*>*/}
-      {/*  <Grid item>*/}
-      {/*    <Typography variant={"h1"}>Testimonals</Typography>*/}
-      {/*  </Grid>*/}
+      <Grid
+        item
+        container
+        className={classes.testimonalContainer}
 
-      {/*  <Grid item style={{ marginTop: "66px", paddingBottom: "82px" }}>*/}
-      {/*    <Grid item container justify={"center"}>*/}
-      {/*      {testimonals.map((card) => (*/}
-      {/*        <Grid*/}
-      {/*          key={card.id}*/}
-      {/*          item*/}
-      {/*          lg={4}*/}
-      {/*          md={6}*/}
-      {/*          sm={6}*/}
-      {/*          xs={6}*/}
-      {/*          style={{ paddingLeft: "5px", paddingRight: "5px" }}*/}
-      {/*        >*/}
-      {/*          <TestimonalCard*/}
-      {/*            image={card.image}*/}
-      {/*            info={card.info}*/}
-      {/*            rating={card.rating}*/}
-      {/*            name={card.name}*/}
-      {/*            type={card.type}*/}
-      {/*          />*/}
-      {/*        </Grid>*/}
-      {/*      ))}*/}
-      {/*    </Grid>*/}
-      {/*  </Grid>*/}
-      {/*</Grid>*/}
+        direction={"column"}
+        alignItems={"center"}
+      >
+        <Grid item>
+          <Typography variant={"h1"}>Testimonals</Typography>
+        </Grid>
+
+        <Grid item style={{ marginTop: "66px", paddingBottom: "82px" }}>
+          <Grid item container justify={"center"}>
+            {testimonals.map((card) => (
+              <Grid
+                key={card.id}
+                item
+                lg={4}
+                md={6}
+                sm={12}
+                xs={12}
+                style={{ paddingLeft: "5px", paddingRight: "5px" }}
+              >
+                <TestimonalCard
+                  image={card.image}
+                  info={card.info}
+                  rating={card.rating}
+                  name={card.name}
+                  type={card.type}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+      </Grid>
 
       {/*SPHERE*/}
-      {/*<Grid*/}
-      {/*  item*/}
-      {/*  container*/}
-      {/*  direction={matchesSM ? 'column' : 'row'}*/}
-      {/*  style={{ paddingTop: "60px", paddingBottom: "60px" }}*/}
-      {/*>*/}
-      {/*  <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}>*/}
-      {/*    <Grid item container alignItems={"flex-end"} direction={"column"}>*/}
-      {/*      <Grid item>*/}
-      {/*        <Grid item container direction={"column"}>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography*/}
-      {/*              variant={"h6"}*/}
-      {/*              style={{ color: theme.palette.primary.main }}*/}
-      {/*            >*/}
-      {/*              FOR BUSINESSES*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
+      <Grid
+        item
+        container
+        direction={matchesSM ? 'column' : 'row'}
+        style={{ paddingTop: "60px", paddingBottom: "60px" }}
+      >
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}>
+          <Grid item container alignItems={"flex-end"} direction={"column"}>
+            <Grid item>
+              <Grid item container direction={"column"}>
+                <Grid item>
+                  <Typography
+                    variant={"h6"}
+                    style={{ color: theme.palette.primary.main }}
+                  >
+                    FOR BUSINESSES
+                  </Typography>
+                </Grid>
 
-      {/*          <Grid item style={{ marginTop: "53px" }}>*/}
-      {/*            <Typography variant={"h2"}>*/}
-      {/*              Connect with your local*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
+                <Grid item style={{ marginTop: "53px" }}>
+                  <Typography variant={"h2"}>
+                    Connect with your local community to scale at speed
+                  </Typography>
+                </Grid>
 
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h2"}>*/}
-      {/*              community to scale at speed*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
 
-      {/*          <Grid item style={{ marginTop: "70px" }}>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              Klippit connects businesses with local influencers to fuel*/}
-      {/*              your*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>growth. Here’s how:</Typography>*/}
-      {/*          </Grid>*/}
+                <Grid item style={{ marginTop: "70px" }}>
+                  <Typography variant={"h6"}>
+                    Klippit connects businesses with local influencers to fuel
+                    your growth. Here’s how:
+                  </Typography>
+                </Grid>
 
-      {/*          <Grid item style={{ marginTop: "46px" }}>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; Easily create affordable influencer marketing*/}
-      {/*              campaigns.*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; Local influencers earn when they buy and share.*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; Build buzz and brand awareness.*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; Only spend when you earn!*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*        </Grid>*/}
-      {/*      </Grid>*/}
-      {/*    </Grid>*/}
-      {/*  </Grid>*/}
+                <Grid item style={{ marginTop: "46px" }}>
+                  <Typography variant={"h6"}>
+                    &bull; Easily create affordable influencer marketing
+                    campaigns.
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant={"h6"}>
+                    &bull; Local influencers earn when they buy and share.
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant={"h6"}>
+                    &bull; Build buzz and brand awareness.
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant={"h6"}>
+                    &bull; Only spend when you earn!
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
 
-      {/*  <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>*/}
-      {/*    <img src={roundSphere} alt="Round Sphere" className={classes.imageTiles}/>*/}
-      {/*  </Grid>*/}
-      {/*</Grid>*/}
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
+          <img src={roundSphere} alt="Round Sphere" className={classes.imageTiles}/>
+        </Grid>
+      </Grid>
 
       {/*FOR INDIVIDUALS*/}
-      {/*<Grid*/}
-      {/*  item*/}
-      {/*  container*/}
-      {/*  direction={matchesSM ? 'column' : 'row'}*/}
-      {/*  style={{*/}
-      {/*    paddingTop: "60px",*/}
-      {/*    paddingBottom: "60px",*/}
-      {/*    backgroundColor: "#F1F3F4",*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}>*/}
-      {/*    <Grid item container justify={"flex-end"}>*/}
-      {/*      <Grid item>*/}
-      {/*        <img src={iPhoneMockup} alt="iPhone Layout" className={classes.iPhone}/>*/}
-      {/*      </Grid>*/}
-      {/*    </Grid>*/}
-      {/*  </Grid>*/}
+      <Grid
+        item
+        container
+        direction={matchesSM ? 'column' : 'row'}
+        style={{
+          paddingTop: "60px",
+          paddingBottom: "60px",
+          backgroundColor: "#F1F3F4",
+        }}
+      >
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer}>
+          <Grid item container justify={"flex-end"}>
+            <Grid item>
+              <img src={iPhoneMockup} alt="iPhone Layout" className={classes.iPhone}/>
+            </Grid>
+          </Grid>
+        </Grid>
 
-      {/*  <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>*/}
-      {/*    <Grid item container direction={"column"}>*/}
-      {/*      <Grid item>*/}
-      {/*        <Grid item container direction={"column"}>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography*/}
-      {/*              variant={"h6"}*/}
-      {/*              style={{ color: theme.palette.primary.main }}*/}
-      {/*            >*/}
-      {/*              FOR INDIVIDUALS*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
+          <Grid item container direction={"column"}>
+            <Grid item>
+              <Grid item container direction={"column"}>
+                <Grid item>
+                  <Typography
+                    variant={"h6"}
+                    style={{ color: theme.palette.primary.main }}
+                  >
+                    FOR INDIVIDUALS
+                  </Typography>
+                </Grid>
 
-      {/*          <Grid item style={{ marginTop: "53px" }}>*/}
-      {/*            <Typography variant={"h2"}>*/}
-      {/*              Put your natural influence to*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
+                <Grid item style={{ marginTop: "53px" }}>
+                  <Typography variant={"h2"}>
+                    Put your natural influence to work with Klippit.
+                  </Typography>
+                </Grid>
 
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h2"}>work with Klippit.</Typography>*/}
-      {/*          </Grid>*/}
 
-      {/*          <Grid item style={{ marginTop: "70px" }}>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              With Klippit, everyone can use their natural influence to*/}
-      {/*              support*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              local businesses - and earn cash!*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
+                <Grid item style={{ marginTop: "70px" }}>
+                  <Typography variant={"h6"}>
+                    With Klippit, everyone can use their natural influence to
+                    support local businesses - and earn cash!
+                  </Typography>
+                </Grid>
 
-      {/*          <Grid item style={{ marginTop: "46px" }}>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; Join to see exclusive specials from local businesses.*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; Earn money when you shop and share your photos.*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*          <Grid item>*/}
-      {/*            <Typography variant={"h6"}>*/}
-      {/*              &bull; When your friends shop, you earn even more!*/}
-      {/*            </Typography>*/}
-      {/*          </Grid>*/}
-      {/*        </Grid>*/}
-      {/*      </Grid>*/}
-      {/*    </Grid>*/}
-      {/*  </Grid>*/}
-      {/*</Grid>*/}
+
+                <Grid item style={{ marginTop: "46px" }}>
+                  <Typography variant={"h6"}>
+                    &bull; Join to see exclusive specials from local businesses.
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant={"h6"}>
+                    &bull; Earn money when you shop and share your photos.
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant={"h6"}>
+                    &bull; When your friends shop, you earn even more!
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };

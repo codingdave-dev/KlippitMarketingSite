@@ -9,7 +9,6 @@ import roundSphere from "../assets/homePage/sphere.png";
 import iPhoneMockup from '../assets/whyKlippit/iPhoneMockupWHY.png'
 import HowKlippitWorksItem from "../ui/HowKlippitWorksItem";
 import FrequentlyAskedQuestionsItem from "../ui/FrequentlyAskedQuestionsItem";
-import {brown} from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -26,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.down('md')]: {
         paddingLeft: '5em',
         paddingRight: '5em',
+      },
+      [theme.breakpoints.down('sm')]: {
+          paddingLeft: '1.5em',
+          paddingRight: '1.5em',
       }
   },
     imageTiles: {
@@ -51,10 +54,89 @@ const useStyles = makeStyles((theme) => ({
     businessTitle: {
       [theme.breakpoints.down('md')]: {
           fontSize: '36px'
-      }
+      },
+        [theme.breakpoints.down('sm')]: {
+            textAlign: 'center'
+        }
 
+    },
+    klippitWorksContainer: {
+        backgroundColor: "#8AC5CC",
+        paddingTop: "66px",
+        paddingLeft: "140px",
+        paddingRight: "140px",
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft: "90px",
+            paddingRight: "90px",
+        }
+    },
+    faqTitle: {
+        fontSize: '45px', fontWeight: 400, textAlign: 'center',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '30px'
+        }
+    },
+    faqContainer: {
+        paddingLeft: '4em', paddingRight: '4em',
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft: "2em",
+            paddingRight: "2em",
+        }
+    },
+    image: {
+      width: '100%'
+    },
+    headerText: {
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '30px'
+        }
+    },
+    text: {
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '16px'
+        }
     }
 }));
+
+const howKlippitWorks = [
+    {
+        id: 0,
+        value: '01',
+        title: 'CREATE CAMPAIGN',
+        description: 'Sign in to create your influencer marketing campaign in just a few clicks! Simply create a name to begin setting up your campaign.'
+
+    },
+    {
+        id: 1,
+        value: '02',
+        title: 'DEFINE PROMOTIONS',
+        description: 'Next, decide what savings you’ll be offering to your local influencers and how much they can earn!'
+
+    },
+    {
+        id: 2,
+        value: '03',
+        title: 'SET SHARING REQUIREMNETS',
+        description: 'Tell influencers how to share their purchase with friends, and redeem their Klippit Kash.'
+
+    },
+    {
+        id: 3,
+        value: '04',
+        title: 'PUBLISH LIVE',
+        description: 'When you’re ready, set the promotion live.'
+
+    },
+    {
+        id: 4,
+        value: '05',
+        title: 'START LEARNING',
+        description: 'When customers shop and post their purchases, you both earn!'
+
+    }
+
+]
+
 
 const faqLeft = [
     {
@@ -145,7 +227,6 @@ const WhyKlippit = () => {
             item
             container
             className={classes.mainLeftContainer}
-            // style={{ paddingLeft: "12em", paddingRight: "12em" }}
             direction={"column"}
           >
             <Grid item>
@@ -160,12 +241,9 @@ const WhyKlippit = () => {
                 </Grid>
 
                 <Grid item style={{ marginTop: "53px" }}>
-                  <Typography variant={"h2"}>Build Buzz & Grow</Typography>
+                  <Typography variant={"h2"}>Build Buzz & Grow Your Business</Typography>
                 </Grid>
 
-                <Grid item>
-                  <Typography variant={"h2"}>Your Business</Typography>
-                </Grid>
 
                 <Grid item style={{ marginTop: "70px" }}>
                   <Typography variant={"h6"}>
@@ -194,7 +272,7 @@ const WhyKlippit = () => {
           backgroundColor: "#F1F3F4",
         }}
       >
-        <Grid item md={6} style={{ paddingRight: "4em" }}>
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainLeftContainer} >
           <Grid item container justify={"center"}>
             <Grid item>
               <img src={iPhoneMockup} alt="iPhone Layout" className={classes.iPhone}/>
@@ -202,7 +280,7 @@ const WhyKlippit = () => {
           </Grid>
         </Grid>
 
-        <Grid item md={6} style={{ paddingLeft: "4em" }}>
+        <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mainRightContainer}>
           <Grid item container direction={"column"}>
             <Grid item>
               <Grid item container direction={"column"}>
@@ -216,32 +294,16 @@ const WhyKlippit = () => {
                 </Grid>
 
                 <Grid item style={{ marginTop: "53px" }}>
-                  <Typography variant={"h2"}>
-                    Put your natural influence to
+                  <Typography variant={"h2"} className={classes.headerText}>
+                    Put your natural influence to work with Klippit.
                   </Typography>
-                </Grid>
-
-                <Grid item>
-                  <Typography variant={"h2"}>work with Klippit.</Typography>
                 </Grid>
 
                 <Grid item style={{ marginTop: "70px" }}>
-                  <Typography variant={"h6"}>
-                      At Klippit, we believe everyone can be an influencer. We
+                  <Typography variant={"h6"} className={classes.text}>
+                      At Klippit, we believe everyone can be an influencer. We make it easy for you to find deals at local hotspots, and earn extra cash just by shopping and sharing!
                   </Typography>
                 </Grid>
-                <Grid item>
-                  <Typography variant={"h6"}>
-                      make it easy for you to find deals at local hotspots, and earn
-                  </Typography>
-                </Grid>
-                  <Grid item>
-                      <Typography variant={"h6"}>
-                          extra cash just by shopping and sharing!
-                      </Typography>
-                  </Grid>
-
-
               </Grid>
             </Grid>
           </Grid>
@@ -252,12 +314,9 @@ const WhyKlippit = () => {
         <Grid
             item
             container
-            style={{
-                backgroundColor: "#8AC5CC",
-                paddingTop: "66px",
-                paddingLeft: "140px",
-                paddingRight: "140px",
-            }}
+            className={classes.klippitWorksContainer}
+
+            alignItems={matchesSM ? 'center' : null}
             direction={"column"}
         >
             <Grid item>
@@ -266,30 +325,20 @@ const WhyKlippit = () => {
 
 
             <Grid item style={{marginTop: '40px'}}>
-                <Grid item container>
-                    <Grid item lg={5} md={5}>
+                <Grid item container direction={matchesSM ? 'column' : 'row'}>
+                    <Grid item lg={5} md={5} sm={12} xs={12}>
                         <Typography variant={"h1"} className={classes.businessTitle}>For Businesses</Typography>
                     </Grid>
-                    <Grid item  lg={7} md={7}>
+                    <Grid item  lg={7} md={7} sm={12} xs={12} style={matchesSM ? {marginTop: '2em'} : null}>
                         <Grid item container direction={'column'}>
-                            <Grid item>
-                                <HowKlippitWorksItem value={'01'} title={'CREATE CAMPAIGN'} description={'Sign in to create your influencer marketing campaign in just a few clicks! Simply create a name to begin setting up your campaign.'}/>
-                            </Grid>
-                            <Grid item>
-                                <HowKlippitWorksItem value={'02'} title={'DEFINE PROMOTIONS'} description={'Next, decide what savings you’ll be offering to your local influencers and how much they can earn!'}/>
-                            </Grid>
 
-                            <Grid item>
-                                <HowKlippitWorksItem value={'03'} title={'SET SHARING REQUIREMNETS'} description={'Tell influencers how to share their purchase with friends, and redeem their Klippit Kash.'}/>
-                            </Grid>
+                            {howKlippitWorks.map(item => (
+                                <Grid item key={item.id}>
+                                    <HowKlippitWorksItem value={item.value} title={item.title} description={item.description}/>
+                                </Grid>
+                            ))}
 
-                            <Grid item>
-                                <HowKlippitWorksItem value={'04'} title={'PUBLISH LIVE'} description={'When you’re ready, set the promotion live.'}/>
-                            </Grid>
 
-                            <Grid item>
-                                <HowKlippitWorksItem value={'05'} title={'START LEARNING'} description={'When customers shop and post their purchases, you both earn! '}/>
-                            </Grid>
 
                         </Grid>
                     </Grid>
@@ -305,12 +354,12 @@ const WhyKlippit = () => {
         <Grid item container direction={'column'} style={{marginTop: '4em', marginBottom: '6em'}}>
 
             <Grid item>
-                <Typography variant={"h1"} style={{fontSize: '45px', fontWeight: 400, textAlign: 'center'}}>Frequently Asked Questions</Typography>
+                <Typography variant={"h1"} className={classes.faqTitle} >Frequently Asked Questions</Typography>
             </Grid>
 
             <Grid item style={{marginTop: '4em'}}>
-                <Grid item container style={{paddingLeft: '4em', paddingRight: '4em'}}>
-                    <Grid item md={6}>
+                <Grid item container className={classes.faqContainer} >
+                    <Grid item lg={6} md={6} sm={12} xs={12}>
                         <Grid item container direction={'column'}>
                             {faqLeft.map(faq => (
                                 <FrequentlyAskedQuestionsItem key={faq.id} title={faq.faq} description={faq.answer}/>
@@ -318,7 +367,7 @@ const WhyKlippit = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid item md={6}>
+                    <Grid item lg={6} md={6} sm={12} xs={12}>
                         <Grid item container  direction={'column'}>
                             {faqRight.map(faq => (
                                 <FrequentlyAskedQuestionsItem key={faq.id} title={faq.faq} description={faq.answer}/>

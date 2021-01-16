@@ -75,10 +75,13 @@ const useStyles = makeStyles((theme) => ({
 
   drawer: {
     backgroundColor: theme.palette.primary.main,
+    paddingTop: '1.5em'
   },
   appBar: {
     zIndex: theme.zIndex.modal + 1,
     backgroundColor: theme.palette.primary.main,
+    paddingTop: '1em',
+    paddingBottom: '1em'
   },
 
   toolbarMargin: {
@@ -87,6 +90,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       marginBottom: "1em",
     },
+
   },
 
   drawerIconContainer: {
@@ -100,6 +104,10 @@ const useStyles = makeStyles((theme) => ({
     height: "30px",
     width: "30px",
   },
+  drawerItem: {
+    paddingTop: '1.5em',
+    paddingBottom: '1.5em'
+  }
 }));
 
 const Header = () => {
@@ -173,8 +181,8 @@ const Header = () => {
         classes={{ paper: classes.drawer }}
       >
         <div className={classes.toolbarMargin} />
-        <List disablePadding>
-          <ListItem>
+        <List disablePadding >
+          <ListItem className={classes.drawerItem}>
             <img
               src={whyKlippit}
               alt="Why Klippit"
@@ -185,7 +193,7 @@ const Header = () => {
               className={classes.linkImg}
             />
           </ListItem>
-          <ListItem>
+          <ListItem className={classes.drawerItem}>
             <img
                 src={demo}
                 alt="Demo"
@@ -196,7 +204,7 @@ const Header = () => {
                 className={classes.linkImg}
             />
           </ListItem>
-          <ListItem>
+          <ListItem className={classes.drawerItem}>
             <img
                 src={press}
                 alt="Press"
@@ -207,7 +215,7 @@ const Header = () => {
                 className={classes.linkImg}
             />
           </ListItem>
-          <ListItem>
+          <ListItem className={classes.drawerItem}>
             <img
                 src={joinButton}
                 alt="Join Button"
