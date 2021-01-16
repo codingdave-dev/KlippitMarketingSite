@@ -64,10 +64,15 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     cursor: "pointer",
   },
-
-  logo: {},
-  linkImg: {},
-  button: {},
+  logo: {
+    cursor: 'pointer'
+  },
+  linkImg: {
+    cursor: 'pointer'
+  },
+  button: {
+    cursor: 'pointer'
+  },
 
   drawer: {
     backgroundColor: theme.palette.primary.main,
