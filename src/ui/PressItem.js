@@ -1,10 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles, useTheme} from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 
 import Typography from "@material-ui/core/Typography";
 
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: "2.5em",
@@ -77,23 +78,28 @@ const useStyles = makeStyles((theme) => ({
 
 const PressItem = ({ img, date, title, description, link }) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid item container alignItems={"center"} className={classes.container}>
-      <Grid item lg={4} md={4} sm={5} xs={8} className={classes.leftContainer}>
-        <Grid item container>
-          <Grid
-            item
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              window.open(`${link}`, "_blank");
-            }}
-          >
-            <img src={img} alt={`${title}`} className={classes.image} />
+      {!matchesXS && (
+          <Grid item lg={4} md={4} sm={5} xs={8} className={classes.leftContainer}>
+            <Grid item container>
+              <Grid
+                  item
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    window.open(`${link}`, "_blank");
+                  }}
+              >
+                <img src={img} alt={`${title}`} className={classes.image} />
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
-      </Grid>
+      )}
 
-      <Grid item lg={8} md={8} sm={7} xs={4} className={classes.rightContainer}>
+
+      <Grid item lg={8} md={8} sm={7} xs={12} className={classes.rightContainer}>
         <Grid item container direction={"column"}>
           <Grid item>
             <Typography variant={"h6"} className={classes.date}>
