@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   mainLeftContainer: {
+    paddingLeft: "4em",
     paddingRight: "4em",
     [theme.breakpoints.down("md")]: {
       paddingLeft: "1.5em",
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mainRightContainer: {
     paddingLeft: "4em",
+    paddingRight: "4em",
     [theme.breakpoints.down("md")]: {
       paddingLeft: "1.5em",
       paddingRight: "1.5em",
