@@ -93,7 +93,7 @@ const testimonals = [
     id: 0,
     image: card1Image,
     info:
-      "Um volo blaces ilicias asit evenest, acestem dolest, ipsum et occullab in provitiusa vendignimi.",
+      "I think this will be good for micro influencers.",
     rating: 4,
     name: "Kyle Jones",
     type: "Influencer",
@@ -102,7 +102,7 @@ const testimonals = [
     id: 1,
     image: card2Image,
     info:
-      "Um volo blaces ilicias asit evenest, acestem dolest, ipsum et occullab in provitiusa vendignimi.",
+      "This app will be great with helping businesses market with influencers. Game-changer.",
     rating: 4,
     name: "Evan Cooper",
     type: "Influencer",
@@ -111,10 +111,10 @@ const testimonals = [
     id: 2,
     image: card3Image,
     info:
-      "Um volo blaces ilicias asit evenest, acestem dolest, ipsum et occullab in provitiusa vendignimi.",
+      "I would recommend this for any business considering influencer marketing on a budget. You only pay when it works.",
     rating: 4,
     name: "Eduardo Watson",
-    type: "Influencer",
+    type: "Merchant",
   },
 ];
 

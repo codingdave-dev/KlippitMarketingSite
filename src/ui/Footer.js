@@ -70,22 +70,27 @@ const Header = () => {
               onClick={() => history.push("/whyKlippit")}
             />
           </Grid>
-          <Grid item className={classes.footerLink}>
-            <img
-              src={examples}
-              alt="Examples"
-              onClick={() => history.push("/examples")}
-            />
-          </Grid>
+          {/*<Grid item className={classes.footerLink}>*/}
+          {/*  <img*/}
+          {/*    src={examples}*/}
+          {/*    alt="Examples"*/}
+          {/*    onClick={() => history.push("/examples")}*/}
+          {/*  />*/}
+          {/*</Grid>*/}
           <Grid item className={classes.footerLink}>
             <img
               src={theApp}
               alt="The App"
-              onClick={() => history.push("/theApp")}
+              onClick={() => {
+                window.open(
+                    `https://join.klippitapp.com/prelaunchapp/`,
+                    "_blank" // <- This is what makes it open in a new window.
+                );
+              }}
             />
           </Grid>
           <Grid item className={classes.footerLink}>
-            <img src={blog} alt="Blog" onClick={() => history.push("/blog")} />
+            <img src={blog} alt="Blog" onClick={() => history.push("/press#blog")} />
           </Grid>
         </Fragment>
       )}

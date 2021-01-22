@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -37,6 +37,16 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "21px",
     },
   },
+  subTitle: {
+    fontWeight: 700,
+    fontSize: "22px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "19px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px",
+    },
+  },
   description: {
     fontSize: "21px",
     [theme.breakpoints.down("md")]: {
@@ -63,7 +73,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BlogItem = ({ date, title, description, link }) => {
+const BlogItem = ({ date, title, item }) => {
+  const [showBlog, setShowBlog] = useState(false);
+
   const classes = useStyles();
   return (
     <Grid
@@ -95,37 +107,67 @@ const BlogItem = ({ date, title, description, link }) => {
           </Typography>
         </Grid>
 
-        <Grid item style={{ marginTop: "3em" }}>
-          <Typography variant={"subtitle1"} className={classes.description}>
-            {description}
-          </Typography>
-        </Grid>
+        {showBlog && (
+          <Grid item style={{ marginTop: "3em" }}>
+            <Grid item container>
+              {item.images?.map((image) => (
+                <Grid item key={image.id} style={{ padding: "1.5em" }}>
+                  <img
+                    src={image.source}
+                    alt={image.name}
+                    style={{ width: `${image.width}`, borderRadius: "5px" }}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+
+            {item.descriptions?.map((item) => (
+              <Grid key={item.id} item container direction={"column"}>
+                {item.header && (
+                  <Grid item style={{ marginTop: "2em" }}>
+                    <Typography variant={"h2"} className={classes.title}>
+                      {item.header}
+                    </Typography>
+                  </Grid>
+                )}
+                {item.title && (
+                  <Grid item style={{ marginTop: "2em" }}>
+                    <Typography
+                      variant={"subtitle1"}
+                      className={classes.subTitle}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Grid>
+                )}
+                <Grid item style={{ marginTop: "1.5em" }}>
+                  <Typography
+                    variant={"subtitle1"}
+                    className={classes.description}
+                  >
+                    {item.text}
+                  </Typography>
+                </Grid>
+              </Grid>
+            ))}
+          </Grid>
+        )}
 
         <Grid item style={{ marginTop: "3em" }}>
           <Grid item container alignItems={"center"}>
             <Grid item>
               <Typography
                 variant={"h2"}
-                onClick={() => {
-                  window.open(
-                    `${link}`,
-                    "_blank" // <- This is what makes it open in a new window.
-                  );
-                }}
+                onClick={() => setShowBlog(!showBlog)}
                 className={classes.readMoreText}
               >
-                READ MORE
+                {showBlog ? "READ LESS" : "READ MORE"}
               </Typography>
             </Grid>
             <Grid item style={{ marginLeft: "10px" }}>
               <ArrowForwardIosIcon
                 className={classes.arrow}
-                onClick={() => {
-                  window.open(
-                    `${link}`,
-                    "_blank" // <- This is what makes it open in a new window.
-                  );
-                }}
+                onClick={() => setShowBlog(!showBlog)}
               />
             </Grid>
           </Grid>
