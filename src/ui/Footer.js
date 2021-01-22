@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 
 // FOOTER IMAGES
 import whyKlippit from "../assets/footer/whyKlippit.png";
-import examples from "../assets/footer/examples.png";
 import theApp from "../assets/footer/theApp.png";
 import blog from "../assets/footer/blog.png";
 import copyright from "../assets/footer/copyright.png";
