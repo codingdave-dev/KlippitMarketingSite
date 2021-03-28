@@ -278,6 +278,53 @@ const blog = [
       },
     ],
   },
+  {
+    id: 3,
+    date: "MARCH 21, 2021",
+    title: "Why you shouldn’t use influencer marketing and what you should do instead",
+    // images: [
+    //   {
+    //     id: 0,
+    //     name: 'Meet Up Group',
+    //     source: meetupImg,
+    //     width: '300px'
+    //   },
+    //   {
+    //     id: 1,
+    //     name: 'Meet Up Influencers Group',
+    //     source: influencerMeetup,
+    //     width: '300px'
+    //   }
+    // ],
+    descriptions: [
+      {
+        id: 0,
+        title: 'Brands use influencer marketing all the time. But is it the right fit for your business?',
+        text: 'If you are a small-middle sized business owner, using an agency to find influencers who charge hundreds of dollars per post might not be the best option for you. Besides being highly costly, using influencers with thousands of followers might not give you the results you want.\n' +
+            'Nowadays because of the rise of sponsored content, users are becoming more reluctant to the honesty of influencers’ recommendations. For this reason opting to work with multiple people with a smaller number of followers could be more effective for you.'
+      },
+      {
+        id: 1,
+        title: 'But wouldn’t contacting multiple people on social media be more time consuming and exhausting for you? Yes it would, this is why Klippit allows you to:',
+        text: '1. Quickly create campaigns that connect with customers and community.'
+      },
+      {
+        id: 2,
+        title: '',
+        text: '2. Easily implement influencer marketing with simple targeting and'
+      },
+      {
+        id: 3,
+        title: '',
+        text: '3. Track your ROI with clear metrics and dashboards.'
+      },
+      {
+        id: 4,
+        title: '',
+        text: 'Klippit is raising money to launch its app before fall 2021. If you are interested in using Klippit for your business you simply have to sign up on our merchant site for free and they will notify you when the full feature app will be ready for you to use.'
+      },
+    ],
+  },
 ];
 
 const Press = () => {
